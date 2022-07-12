@@ -1,0 +1,10 @@
+ @import "fonts.css";
+
+.mfx-text-field {
+	-fx-min-width: 130;
+	-fx-border-color: red;
+}
+
+.mfx-text-field .floating-text {
+	-fx-font-family: "Hammersmith One";
+}
