@@ -4,6 +4,8 @@ module techaholic.recruited {
 	requires javafx.fxml;
 	requires fr.brouillard.oss.cssfx;
 
+	requires java.sql;
+
 	requires VirtualizedFX;
 	requires MaterialFX;
 

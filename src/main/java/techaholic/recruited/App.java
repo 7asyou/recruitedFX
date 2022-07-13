@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * JavaFX App
@@ -19,8 +20,8 @@ public class App extends Application {
 	@Override
 	public void start(Stage stage) throws IOException {
 		CSSFX.start();
-		scene = new Scene(loadFXML("primary"), 640, 480);
-		// q
+		stage.initStyle(StageStyle.TRANSPARENT);
+		scene = new Scene(loadFXML("login"), 1280, 720);
 		stage.setScene(scene);
 		stage.show();
 	}

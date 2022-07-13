@@ -1,10 +1,135 @@
  @import "fonts.css";
 
-.mfx-text-field {
-	-fx-min-width: 130;
-	-fx-border-color: red;
-}
 
 .mfx-text-field .floating-text {
+	-fx-font-family: "Inria Sans";
+	-fx-font-size: 15;
+
+}
+.mfx-text-field {
+	-fx-font-family: "Inria Sans";
+	-fx-font-size: 15;
+}
+.account-text-field .floating-text {
+	-fx-font-family: "Inria Sans";
+	-fx-text-fill: #A9CAE2;
+	-fx-font-size: 15;
+}
+
+.account-text-field{
+	-fx-border-radius: 20;
+	-fx-border-width: 0.5;
+	-fx-border-color: #C1E3ED;
+
+	-fx-text-fill:#4F77AA;
+	-fx-pref-height: 40;
+	-fx-pref-width: 250;
+	-fx-border-radius:30;
+}
+
+.login-text-field{
+	-fx-font-size: 16;
+
+	-fx-border-color: transparent;
+	-fx-background-color:#A9CAE2;
+	-fx-text-fill:white;
+	-fx-pref-height: 40;
+	-fx-pref-width: 250;
+	-fx-background-radius:30;
+
+}
+.login-text-field .floating-text{
+	-fx-font-famil: "Inria Sans";
+	-fx-font-size: 16; 
+	-fx-text-fill:white;
+	-fx-background-color:transparent;
+	
+
+}
+
+
+.link-button {
+	-fx-background-color: white;
+	-fx-background-radius: 100;
+	
+}
+.link-button:hover{
+	-fx-underline: true;
+	-fx-background-radius: 100;
+	
+}
+.link-button:armed,
+.link-button:focused {
+	-fx-text-fill: #4F77AA;
+	-fx-background-radius: 100;
+}
+
+.link-button .mfx-ripple-generator {
+	-fx-background-radius: 100;
+	-mfx-ripple-color: #D9E9FF;
+}
+
+.login-link{
+	-fx-text-fill: #4F77AA;	
+	-fx-font-family: "Inria Sans Light";
+	-fx-font-size: 12;
+}
+
+.links{
+	-fx-font-family: "Inria Sans";
+	-fx-text-fill:#D2E1E6;
+	-fx-font-size: 14;
+}
+
+
+.flex-pane{
+	-fx-background-radius : 15;
+	-fx-border-radius : 15;
+	-fx-background-color : white;
+}
+
+
+
+#login-logo{
 	-fx-font-family: "Hammersmith One";
+	-fx-font-size:50;
+	-fx-fill: #3895D3;
+}
+
+#create-account-logo{
+	-fx-font-family: "Hammersmith One";
+	-fx-font-size:40;
+	-fx-fill: #3895D3;
+}
+
+#home{
+	-fx-background-image : url('../images/home.jpg');
+	-fx-background-position: 820;
+	-fx-background-size: 1124 750;
+
+}
+
+
+#first-name  .floating-text{
+	-fx-translate-x: 85;
+	
+}
+
+#last-name .floating-text{
+	-fx-translate-x: 85;
+	
+}
+
+#email .floating-text{
+	-fx-translate-x: 95;
+}
+
+#password .floating-text{
+	-fx-translate-x: 87;
+	
+}
+
+#confirm-password  .floating-text{
+	-fx-translate-x: 57;
+
 }

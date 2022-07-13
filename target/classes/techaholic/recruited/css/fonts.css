@@ -5,3 +5,16 @@
 	font-display: auto;
 	src: url('../fonts/Hammersmith_One/HammersmithOne-Regular.ttf') format('truetype');
 }
+
+@font-face {
+	font-family: "Inria Sans";
+	src: url("../fonts/Inria_Sans/InriaSans-Regular.ttf")format("truetype");
+}
+
+@font-face {
+	font-family: "Inria Sans Light";
+	font-weight: normal;
+	font-style: normal;
+	font-display: auto;
+	src: url("../fonts/Inria_Sans/InriaSans-Light.ttf")format("truetype");
+}
