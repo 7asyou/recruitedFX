@@ -10,6 +10,11 @@
 	font-family: "Inria Sans";
 	src: url("../fonts/Inria_Sans/InriaSans-Regular.ttf")format("truetype");
 }
+@font-face {
+	font-family: "Inria Sans Bold";
+	font-weight: bold;
+	src: url("../fonts/Inria_Sans/InriaSans-Bold.ttf")format("truetype");
+}
 
 @font-face {
 	font-family: "Inria Sans Light";

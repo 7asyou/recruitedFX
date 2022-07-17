@@ -1,6 +1,8 @@
 package techaholic.recruited;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import fr.brouillard.oss.cssfx.CSSFX;
 
 import javafx.application.Application;
@@ -9,25 +11,31 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import techaholic.recruited.Crud.Utils.SideBarLoader;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
 
+	public static ArrayList<String> sidebarContent = new ArrayList<>();
+	public static String role = "admin";
+
 	private static Scene scene;
 
 	@Override
 	public void start(Stage stage) throws IOException {
 		CSSFX.start();
+		SideBarLoader.init(sidebarContent);
 		stage.initStyle(StageStyle.TRANSPARENT);
-		scene = new Scene(loadFXML("login"), 1280, 720);
+		scene = new Scene(loadFXML("testing"), 1280, 720);
 		stage.setScene(scene);
 		stage.show();
 	}
 
 	public static void setRoot(String fxml) throws IOException {
 		scene.setRoot(loadFXML(fxml));
+
 	}
 
 	private static Parent loadFXML(String fxml) throws IOException {

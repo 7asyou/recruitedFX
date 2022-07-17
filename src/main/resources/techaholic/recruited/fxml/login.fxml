@@ -29,11 +29,11 @@
                   <Insets bottom="25.0" top="80.0" />
                </FlowPane.margin>
             </Text>
-            <MFXTextField id="email" alignment="CENTER" floatingText="E-mail" layoutX="123.0" layoutY="313.0" styleClass="login-text-field">
+            <MFXTextField id="login-email" alignment="CENTER" floatingText="E-mail" layoutX="123.0" layoutY="313.0" styleClass="login-text-field" stylesheets="@../css/stylesheet.css">
                <textFill>
                   <Color />
                </textFill></MFXTextField>
-            <MFXTextField id="password" alignment="CENTER" floatingText="Password" layoutX="123.0" layoutY="337.0" styleClass="login-text-field">
+            <MFXTextField id="login-password" alignment="CENTER" floatingText="Password" layoutX="123.0" layoutY="337.0" styleClass="login-text-field">
                <textFill>
                   <Color red="1.0" green="1.0" blue="1.0" />
                </textFill></MFXTextField>

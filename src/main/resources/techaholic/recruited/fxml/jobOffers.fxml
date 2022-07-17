@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXListView?>
-<?import javafx.scene.layout.BorderPane?>
+<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <center>
-      <MFXListView BorderPane.alignment="CENTER" />
-   </center>
-</BorderPane>
+
+<Pane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="techaholic.recruited.controllers.JobOffersController">
+   <children>
+      <MFXScrollPane fx:id="scrollPane" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="300.0">
+         <content>
+            <FlowPane fx:id="flowPane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="280.0" prefWrapLength="300000.0" stylesheets="@../css/stylesheet.css" />
+         </content>
+      </MFXScrollPane>
+   </children>
+</Pane>
