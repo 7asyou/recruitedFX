@@ -27,8 +27,8 @@ public class App extends Application {
 	public void start(Stage stage) throws IOException {
 		CSSFX.start();
 		SideBarLoader.init(sidebarContent);
-		stage.initStyle(StageStyle.TRANSPARENT);
-		scene = new Scene(loadFXML("testing"), 1280, 720);
+		// stage.initStyle(StageStyle.TRANSPARENT);
+		scene = new Scene(loadFXML("jobOffers"), 1280, 720);
 		stage.setScene(scene);
 		stage.show();
 	}

@@ -39,7 +39,7 @@
                </textFill></MFXTextField>
             <MFXButton onAction="#goToCreateAccount" style="-fx-background-radius: 25; -fx-border-radius: 25;" text="create an account">
                <FlowPane.margin>
-                  <Insets bottom="80.0" top="15.0" />
+                  <Insets bottom="60.0" top="15.0" />
                </FlowPane.margin>
                <styleClass>
                   <String fx:value="link-button" />
@@ -48,10 +48,13 @@
             </MFXButton>
             <MFXButton layoutX="160.0" layoutY="440.0" styleClass="links" text="contact us">
                <FlowPane.margin>
-                  <Insets top="10.0" />
+                  <Insets />
                </FlowPane.margin>
             </MFXButton>
-            <MFXButton layoutX="160.0" layoutY="476.0" styleClass="links" text="about us" />
+            <MFXButton layoutX="160.0" layoutY="476.0" styleClass="links" text="about us">
+               <FlowPane.margin>
+                  <Insets bottom="20.0" />
+               </FlowPane.margin></MFXButton>
          </children>
       </FlowPane>
       <Pane id="home" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/stylesheet.css" GridPane.rowIndex="1" />

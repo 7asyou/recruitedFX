@@ -7,7 +7,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import io.github.palexdev.materialfx.controls.MFXButton;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.text.TextAlignment;
 import techaholic.recruited.App;
 
 /**
@@ -29,7 +33,10 @@ public class SideBarLoader {
 	public static void sideBarFill(FlowPane sideBar) {
 		App.sidebarContent.forEach(element -> {
 			MFXButton elementButton = new MFXButton(element);
+			elementButton.setAlignment(Pos.CENTER_LEFT);
+			elementButton.setPadding(new Insets(10, 0, 10, 80));
 			elementButton.getStyleClass().add("sidebar-button");
+
 			switch (element) {
 				case "Users":
 					elementButton.setOnAction(e -> {
