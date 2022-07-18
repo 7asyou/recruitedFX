@@ -12,6 +12,8 @@ import io.github.palexdev.materialfx.controls.MFXSlider;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.controls.base.MFXCombo;
 import io.github.palexdev.materialfx.enums.FloatMode;
+import io.github.palexdev.materialfx.validation.Constraint;
+import io.github.palexdev.materialfx.validation.Severity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -80,6 +82,19 @@ public class CreateJobOfferController implements Initializable {
 				tagsObservableList.add(tag);
 			}
 
+		});
+		Constraint lengthConstraint = Constraint.Builder.build()
+				.setSeverity(Severity.ERROR)
+				.setMessage("Password must be at least 8 characters long")
+				.setCondition(positionTitle.textProperty().length().greaterThanOrEqualTo(1))
+				.get();
+		positionTitle.getValidator().constraint(lengthConstraint);
+
+		positionTitle.getValidator().validProperty().addListener((observable, oldValue, newValue) -> {
+			if (newValue) {
+				validationLabel.setVisible(false);
+				passwordField.pseudoClassStateChanged(INVALID_PSEUDO_CLASS, false);
+			}
 		});
 		add.setOnAction(new EventHandler<ActionEvent>() {
 
