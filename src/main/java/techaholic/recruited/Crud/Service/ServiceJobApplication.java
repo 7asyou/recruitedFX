@@ -1,9 +1,11 @@
 package techaholic.recruited.Crud.Service;
 
-import techaholic.recruited.Crud.Utils.DataSource;
-
+import techaholic.recruited.App;
 import techaholic.recruited.Crud.Entite.JobApplication;
+import techaholic.recruited.Crud.Entite.JobOffer;
+import techaholic.recruited.Crud.Entite.User;
 // import javafx.concurrent.Service;
+import techaholic.recruited.Utils.DataSource;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -78,16 +80,40 @@ public class ServiceJobApplication implements IService<JobApplication> {
 			return null;
 	}
 
-	@Override
 	public ArrayList<JobApplication> getAll() throws SQLException {
 		ArrayList<JobApplication> jobApplications = new ArrayList<>();
-		// resultSet = statement.executeQuery("SELECT * FROM `job_application`");
-		/// while (resultSet.next()) {
-		// jobApplications.add(new JobApplication(resultSet.getInt("id"),
-		// resultSet.getString(2),
-		// resultSet.getString(3), resultSet.getString(4), resultSet.getTimestamp(5),
-		// resultSet.getInt(6)));
-		// }
+		resultSet = statement.executeQuery("SELECT * FROM `job_application`");
+
+		ServiceUser serviceUser = new ServiceUser();
+		ServiceJobOffer serviceJobOffer = new ServiceJobOffer();
+		while (resultSet.next()) {
+			jobApplications.add(
+					new JobApplication(resultSet.getInt("id"),
+							resultSet.getString(2),
+							resultSet.getString(3),
+							resultSet.getString(4),
+							resultSet.getTimestamp(5),
+							resultSet.getInt(6),
+							serviceUser.findById(resultSet.getInt(7)),
+							serviceJobOffer.findById(resultSet.getInt(8))));
+		}
+		return jobApplications;
+	}
+
+	public ArrayList<JobApplication> hello() throws SQLException {
+		ArrayList<JobApplication> jobApplications = new ArrayList<>();
+		resultSet = statement
+				.executeQuery("SELECT * FROM `job_application` where user_id=" + String.valueOf(App.user.getId()));
+
+		ServiceJobOffer serviceJobOffer = new ServiceJobOffer();
+
+		while (resultSet.next()) {
+			JobOffer jobOffer = serviceJobOffer.findById(resultSet.getInt(7));
+			jobApplications.add(new JobApplication(resultSet.getInt("id"),
+					resultSet.getString(2),
+					resultSet.getString(3), resultSet.getString(4), resultSet.getTimestamp(5),
+					resultSet.getInt(6), App.user, jobOffer));
+		}
 		return jobApplications;
 	}
 

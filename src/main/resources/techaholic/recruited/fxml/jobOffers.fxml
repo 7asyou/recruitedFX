@@ -4,7 +4,6 @@
 <?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
 <?import io.github.palexdev.materialfx.font.MFXFontIcon?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
@@ -23,15 +22,15 @@
          <children>
             <FlowPane hgap="15.0" prefHeight="32.0" prefWidth="360.0">
                <children>
-                  <Label text="Current Jobs Offers:">
+                  <Text fill="#4f77aa" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Job Offers:">
                      <font>
                         <Font name="Inria Sans Regular" size="22.0" />
                      </font>
                      <FlowPane.margin>
                         <Insets left="18.0" />
                      </FlowPane.margin>
-                  </Label>
-                  <MFXButton maxWidth="86.0" minWidth="46.0" prefHeight="30.0" prefWidth="46.0" styleClass="list-button" text="+add" />
+                  </Text>
+                  <MFXButton fx:id="addButton" maxWidth="86.0" minWidth="46.0" prefHeight="30.0" prefWidth="46.0" styleClass="list-button" text="+add" />
                </children>
                <padding>
                   <Insets bottom="10.0" top="10.0" />

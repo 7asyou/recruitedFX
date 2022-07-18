@@ -9,9 +9,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import techaholic.recruited.Crud.Utils.DataSource;
-
 import techaholic.recruited.Crud.Entite.Event;
+import techaholic.recruited.Utils.DataSource;
 
 public class ServiceEvent implements
 		IService<Event> {

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package techaholic.recruited.Crud.Utils;
+package techaholic.recruited.Utils;
 
 import java.sql.*;
 import java.util.logging.Level;

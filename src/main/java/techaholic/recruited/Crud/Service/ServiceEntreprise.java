@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import techaholic.recruited.Crud.Utils.DataSource;
 import techaholic.recruited.Crud.Entite.Entreprise;
 // import javafx.concurrent.Service;
+import techaholic.recruited.Utils.DataSource;
 
 public class ServiceEntreprise implements IService<Entreprise> {
 	private PreparedStatement preparedStatement;

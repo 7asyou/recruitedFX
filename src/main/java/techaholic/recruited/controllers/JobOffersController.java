@@ -1,10 +1,14 @@
 package techaholic.recruited.controllers;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.function.Consumer;
 
@@ -17,6 +21,8 @@ import io.github.palexdev.materialfx.font.MFXFontIcon;
 import io.github.palexdev.materialfx.utils.ScrollUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -27,13 +33,13 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
-
+import javafx.scene.text.FontSmoothingType;
 import javafx.scene.text.Text;
 
 import techaholic.recruited.Crud.Entite.JobOffer;
 import techaholic.recruited.Crud.Service.ServiceJobOffer;
-
-import techaholic.recruited.Crud.Utils.SideBarLoader;
+import techaholic.recruited.Utils.SceneChanger;
+import techaholic.recruited.Utils.SideBarLoader;
 
 public class JobOffersController implements Initializable {
 
@@ -55,6 +61,20 @@ public class JobOffersController implements Initializable {
 		ServiceJobOffer serviceJobOffer = new ServiceJobOffer();
 
 		ScrollUtils.addSmoothScrolling(listScrollPane);
+
+		addButton.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				try {
+					SceneChanger.toCreateJobOffer();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+		});
 
 		try {
 			ArrayList<JobOffer> jobOffers = serviceJobOffer.getAll();
@@ -84,18 +104,41 @@ public class JobOffersController implements Initializable {
 		GridPane cellHeader = createCellHeader(jobOffer.getPositionTitle(),
 				jobOffer.getAvailablePositions());
 
-		FlowPane cellBody = createCellBody(jobOffer.getDescription(), jobOffer.getTags());
+		FlowPane cellBody = createCellBody(
+				jobOffer.getDescription(),
+				jobOffer.getTags(),
+				jobOffer.getDeadline(),
+				jobOffer.getDuration(),
+				jobOffer.getLocation());
 
-		GridPane cellFooter = createCellFooter();
+		GridPane cellFooter = createCellFooter(jobOffer.getId());
 
 		MFXButton delete = new MFXButton("", new MFXFontIcon("mfx-delete-alt", 25, Color.valueOf("#4f77AA")));
+		delete.getStyleClass().addAll("delete", "list-button");
+
+		delete.setId(String.valueOf(jobOffer.getId()));
+		delete.setOnAction(new EventHandler<ActionEvent>() {
+
+			ServiceJobOffer serviceJobOffer = new ServiceJobOffer();
+
+			@Override
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+				try {
+					serviceJobOffer.delete(Integer.valueOf(delete.getId()));
+					SceneChanger.toJobOffers();
+				} catch (NumberFormatException | SQLException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+		});
 
 		cell.getChildren().addAll(cellHeader, cellBody, cellFooter);
 		cell.getStyleClass().add("cell");
 
 		cellFooter.getStyleClass().add("cell-footer");
-
-		delete.getStyleClass().addAll("delete", "list-button");
 
 		GridPane.setConstraints(delete, 0, 0);
 		GridPane.setConstraints(cell, 0, 1);
@@ -130,16 +173,30 @@ public class JobOffersController implements Initializable {
 		return cellHeader;
 	}
 
-	public FlowPane createCellBody(String descriptionContent, String tagsContent) {
+	public FlowPane createCellBody(String descriptionContent, String tagsContent, Date deadlineDate, int duration,
+			String locationContent) {
 		FlowPane tags = createTags(tagsContent);
 		Text desc = new Text(descriptionContent);
 
 		desc.setWrappingWidth(700);
 		desc.getStyleClass().addAll("text-content", "desc");
 
-		FlowPane cellBody = new FlowPane();
+		Locale locale = new Locale("en");
+
+		DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, locale);
+
+		String dateString = dateFormat.format(deadlineDate);
+
+		Text deadline = new Text(
+				"before " + dateString + ".  for " + String.valueOf(duration) + " month, in " + locationContent + ".");
+
+		deadline.setFontSmoothingType(FontSmoothingType.GRAY);
+		deadline.getStyleClass().add("date-location");
+
+		FlowPane cellBody = new FlowPane(Orientation.VERTICAL);
 
 		cellBody.getChildren().addAll(tags);
+		cellBody.getChildren().addAll(deadline);
 		cellBody.getChildren().addAll(desc);
 
 		cellBody.getStyleClass().add("cell-body");
@@ -147,9 +204,12 @@ public class JobOffersController implements Initializable {
 		return cellBody;
 	}
 
-	public GridPane createCellFooter() {
+	public GridPane createCellFooter(int id) {
 		MFXButton applyButton = new MFXButton("apply");
 		MFXButton editButton = new MFXButton("edit");
+
+		applyButton.setId(String.valueOf(id));
+		editButton.setId(String.valueOf(id));
 
 		applyButton.getStyleClass().add("list-button");
 		editButton.getStyleClass().add("list-button");
@@ -185,6 +245,7 @@ public class JobOffersController implements Initializable {
 			tagsArrayList.add(tagLabel);
 		}
 		ObservableList<Label> tagsObservableList = FXCollections.observableArrayList(tagsArrayList);
+
 		FlowPane tags = new FlowPane();
 		tags.getChildren().addAll(tagsObservableList);
 		tags.setHgap(5);

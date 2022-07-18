@@ -1,4 +1,4 @@
-package techaholic.recruited.Crud.Utils;
+package techaholic.recruited.Utils;
 
 import java.io.IOException;
 import java.util.ArrayList;

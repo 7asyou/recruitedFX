@@ -1,8 +1,7 @@
 package techaholic.recruited.Crud.Service;
 
-import techaholic.recruited.Crud.Utils.DataSource;
-
 import techaholic.recruited.Crud.Entite.JobOffer;
+import techaholic.recruited.Utils.DataSource;
 
 import java.sql.*;
 import java.util.ArrayList;
