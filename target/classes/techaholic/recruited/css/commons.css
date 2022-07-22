@@ -1,0 +1,130 @@
+@import "fonts.css";
+.button{
+	-fx-font-smoothing-type: gray;
+}
+.mfx-button{
+	-fx-font-smoothing-type: gray;
+}
+
+.mfx-text-field .floating-text {
+	-fx-font-family: "Inria Sans";
+	-fx-font-size: 15;
+	
+}
+
+.mfx-text-field {
+	-fx-font-smoothing-type: gray;
+	-fx-font-family: "Inria Sans";
+	-fx-font-size: 15;
+}
+
+.link-button {
+	-fx-background-color: transparent;
+	-fx-background-radius: 100;
+	-fx-text-fill:#A9CAE2;
+}
+
+
+.link-button:hover {
+	-fx-underline: true;
+	-fx-background-radius: 100;
+
+}
+
+.link-button:armed,
+.link-button:focused {
+	-fx-text-fill: #4F77AA;
+	-fx-background-radius: 100;
+}
+
+.link-button .mfx-ripple-generator {
+	-fx-background-radius: 100;
+	-mfx-ripple-color: #D9E9FF;
+}
+
+.link-button {
+	-fx-text-fill: #4F77AA;
+	-fx-font-family: "Inria Sans Light";
+	-fx-font-size: 12;
+}
+
+.links {
+	-fx-font-family: "Inria Sans";
+	-fx-text-fill: #D2E1E6;
+	-fx-font-size: 14;
+}
+
+.flex-pane {
+	-fx-background-radius: 15;
+	-fx-border-radius: 15;
+	-fx-background-color: white;
+}
+
+#home {
+	-fx-background-image: url('../images/home.jpg');
+	-fx-background-position: 820;
+	-fx-background-size: 1124 750;
+
+}
+
+.label {
+	-fx-text-fill: #4F77AA;
+	-fx-font-smoothing-type: gray;
+
+}
+
+.mfx-button .mfx-ripple-generator {
+	-mfx-ripple-color: #D9E9FF;
+}
+
+/* .mfx-button .text{
+	-fx-font-smoothing-type-type: grey;
+} */
+.mfx-ripple-generator {
+	-mfx-auto-clip: true;
+}
+
+.mfx-scroll-pane {
+	-fx-background-color: transparent;
+
+	-track-color: rgba(255, 255, 255, 0.3);
+	-thumb-color: #D4E4EE;
+	-thumb-hover-color: #ABCDE4;
+}
+
+.mfx-slider .track .mfx-font-icon {
+	-mfx-color: red;
+	-fx-background-color: red;
+}
+
+.mfx-slider .track {
+	-mfx-color: red;
+	-fx-background-color: red;
+}
+
+.mfx-date-picker {
+	-fx-border-color: transparent;
+	-fx-background-color: #ABCDE4;
+	-fx-font-family: "Inria Sans Bold";
+	-fx-text-fill: #4F77AA;
+
+	-fx-min-height: 40;
+	-fx-max-height: 40;
+
+	-fx-min-width: 170;
+	-fx-max-width: 170;
+
+	-fx-padding: 20 20 20 20;
+
+	-fx-background-radius: 20;
+}
+
+.mfx-date-picker .mfx-icon-wrapper .mfx-font-icon {
+	-mfx-color: #4F77AA;
+}
+
+.mfx-date-picker .date-picker-popup .months-combo,
+.mfx-date-picker .date-picker-popup .years-combo {
+
+	-fx-text-fill: #4F77AA;
+}

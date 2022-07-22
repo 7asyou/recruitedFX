@@ -1,0 +1,18 @@
+@import "fonts.css";
+@import "fonts.css";
+
+.sidebar-button {
+	-fx-font-size: 20;
+	-fx-text-fill: #4F77AA;
+	-fx-max-width: 240;
+	-fx-min-width: 240;
+}
+
+.sidebar-button .mfx-ripple-generator {
+	-mfx-animation-speed: 2;
+}
+
+.sidebar-button:hover {
+
+	-fx-underline: true;
+}

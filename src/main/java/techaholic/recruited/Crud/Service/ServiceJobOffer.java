@@ -1,6 +1,6 @@
-package techaholic.recruited.Crud.Service;
+package techaholic.recruited.CRUD.Service;
 
-import techaholic.recruited.Crud.Entite.JobOffer;
+import techaholic.recruited.CRUD.Entite.JobOffer;
 import techaholic.recruited.Utils.DataSource;
 
 import java.sql.*;

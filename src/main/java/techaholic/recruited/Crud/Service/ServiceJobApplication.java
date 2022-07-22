@@ -1,9 +1,9 @@
-package techaholic.recruited.Crud.Service;
+package techaholic.recruited.CRUD.Service;
 
 import techaholic.recruited.App;
-import techaholic.recruited.Crud.Entite.JobApplication;
-import techaholic.recruited.Crud.Entite.JobOffer;
-import techaholic.recruited.Crud.Entite.User;
+import techaholic.recruited.CRUD.Entite.JobApplication;
+import techaholic.recruited.CRUD.Entite.JobOffer;
+import techaholic.recruited.CRUD.Entite.User;
 // import javafx.concurrent.Service;
 import techaholic.recruited.Utils.DataSource;
 
@@ -100,7 +100,7 @@ public class ServiceJobApplication implements IService<JobApplication> {
 		return jobApplications;
 	}
 
-	public ArrayList<JobApplication> hello() throws SQLException {
+	public ArrayList<JobApplication> getByUser() throws SQLException {
 		ArrayList<JobApplication> jobApplications = new ArrayList<>();
 		resultSet = statement
 				.executeQuery("SELECT * FROM `job_application` where user_id=" + String.valueOf(App.user.getId()));

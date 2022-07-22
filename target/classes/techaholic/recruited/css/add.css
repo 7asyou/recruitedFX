@@ -1,0 +1,130 @@
+@import "fonts.css";
+@import "commons.css";
+
+.mfx-date-picker {
+	-fx-border-color: transparent;
+	-fx-background-color: #ABCDE4;
+	-fx-font-family: "Inria Sans Bold";
+	-fx-text-fill: #4F77AA;
+
+	-fx-min-height: 40;
+	-fx-max-height: 40;
+
+	-fx-min-width: 170;
+	-fx-max-width: 170;
+
+	-fx-padding: 20 20 20 20;
+
+	-fx-background-radius: 20;
+}
+
+.mfx-date-picker .mfx-icon-wrapper .mfx-font-icon {
+	-mfx-color: #4F77AA;
+}
+
+.mfx-date-picker .date-picker-popup .months-combo,
+.mfx-date-picker .date-picker-popup .years-combo {
+
+	-fx-text-fill: #4F77AA;
+}
+
+.description {
+	-fx-text-fill: #4f77aa;
+	-fx-padding: 0 0 0 20;
+	-fx-alignment: top-left;
+}
+
+.description .floating-text {
+	-fx-font-size: 0;
+}
+
+.description .text {
+	-fx-text-alignment: justify;
+}
+
+.combo {
+	-fx-border-color: transparent;
+	-fx-background-color: #ABCDE4;
+	-fx-font-family: "Inria Sans Bold";
+
+	-fx-min-height: 40;
+	-fx-max-height: 40;
+
+	-fx-background-radius: 20;
+}
+
+.combo .caret .mfx-font-icon {
+	-mfx-color: #4F77AA;
+}
+
+.combo .caret .mfx-ripple-generator {
+	-mfx-ripple-color: #ABCDE4;
+}
+
+.combo .floating-text {
+	-fx-font-size: 1;
+}
+
+.combo .combo-popup .virtual-flow {
+	-fx-background-color: #ECF7FA;
+	-fx-font-family: "Inria Sans Bold";
+	-fx-font-size: 12;
+
+}
+
+.combo .combo-popup .virtual-flow .mfx-combo-box-cell:selected {
+	-fx-background-color: #ABCDE4;
+}
+
+.combo .combo-popup .virtual-flow .mfx-combo-box-cell:hover {
+	-fx-background-color: #ABCDE4;
+	-fx-opacity: 0.6;
+}
+
+.combo .combo-popup .virtual-flow .data-label {
+	-fx-font-family: "Inria Sans Bold";
+
+}
+
+.add-tag-button {
+	-fx-background-color: #ABCDE4;
+	-fx-font-family: "Inria Sans Bold";
+	-fx-text-fill: #4F77AA;
+	-fx-font-size: 16;
+	-fx-alignment: center;
+	-fx-background-radius: 20;
+
+
+}
+
+.add-tag {
+	-fx-font-family: "Inria Sans Bold";
+	-fx-border-color: transparent;
+	-fx-background-color: #ABCDE4;
+	-fx-text-fill: #4F77AA;
+
+
+	-fx-max-width: 30;
+	-fx-background-radius: 20;
+
+}
+
+.add-tag .floating-text {
+	-fx-font-size: 0;
+
+}
+
+.add-tag-field {
+	-fx-background-color: #ABCDE4;
+	-fx-alignment: center-left;
+
+	-fx-background-radius: 20;
+	-fx-margin: 0 2 0 2;
+
+	-fx-min-width: 130;
+	-fx-max-width: 130;
+
+	-fx-min-height: 40;
+	-fx-max-height: 40;
+
+}

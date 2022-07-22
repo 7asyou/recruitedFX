@@ -1,4 +1,4 @@
-package techaholic.recruited.Crud.Entite;
+package techaholic.recruited.CRUD.Entite;
 
 public class Article {
 	private int id;

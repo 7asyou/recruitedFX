@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package techaholic.recruited.Crud.Service;
+package techaholic.recruited.CRUD.Service;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

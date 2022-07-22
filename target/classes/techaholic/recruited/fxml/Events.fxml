@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
+<?import io.github.palexdev.materialfx.font.MFXFontIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane style="-fx-background-color: white;" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="techaholic.recruited.controllers.EventsController">
+   <center>
+      <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="664.0" prefWidth="820.0" style="-fx-background-color: white;" BorderPane.alignment="TOP_LEFT">
+         <children>
+            <FlowPane hgap="15.0" prefHeight="32.0" prefWidth="360.0">
+               <children>
+                  <Text fill="#4f77aa" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Events:">
+                     <font>
+                        <Font name="Inria Sans Regular" size="22.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets left="18.0" />
+                     </FlowPane.margin>
+                  </Text>
+                  <MFXButton fx:id="addButton" maxWidth="86.0" minWidth="46.0" prefHeight="30.0" prefWidth="46.0" styleClass="list-button" text="+add" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <FlowPane.margin>
+                  <Insets left="10.0" />
+               </FlowPane.margin>
+            </FlowPane>
+            <MFXScrollPane fx:id="listScrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="805.0" styleClass="mfx-scroll-pane" thumbColor="#d4e4ee" thumbHoverColor="#abcde4" viewOrder="2.0">
+               <content>
+                  <FlowPane fx:id="flowPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="50.0" prefWidth="760.0" prefWrapLength="0.0" rowValignment="TOP" />
+               </content>
+               <trackColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.385185182094574" green="0.5234568119049072" blue="0.800000011920929" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </trackColor>
+            </MFXScrollPane>
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </FlowPane>
+   </center>
+   <left>
+      <GridPane BorderPane.alignment="TOP_LEFT">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="583.1999877929687" minHeight="-Infinity" prefHeight="548.0000366210937" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="164.80002441406248" minHeight="-Infinity" prefHeight="148.79996337890623" valignment="CENTER" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <FlowPane fx:id="sideBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="518.0" prefWidth="240.0" GridPane.valignment="TOP">
+               <padding>
+                  <Insets top="80.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </FlowPane>
+            <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="138.0" prefWidth="240.0" vgap="10.0" GridPane.rowIndex="1">
+               <children>
+                  <MFXButton styleClass="links" text="contact us" />
+                  <MFXButton styleClass="links" text="about us" />
+               </children>
+               <padding>
+                  <Insets bottom="70.0" />
+               </padding>
+            </FlowPane>
+         </children>
+      </GridPane>
+   </left>
+   <top>
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="240.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="820.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="808.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: AAC9DD;" GridPane.columnIndex="1" />
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="240.0" styleClass="list-logo">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-logo" text="Recruited" wrappingWidth="176.85546875" />
+               </children>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </FlowPane>
+            <FlowPane alignment="BOTTOM_RIGHT" columnHalignment="RIGHT" hgap="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="155.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: aac9dd;" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
+               <children>
+                  <Text fill="#4f77aa" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
+                     <font>
+                        <Font name="Inria Sans Regular" size="16.0" />
+                     </font>
+                  </Text>
+                  <MFXButton alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 40; -fx-background-color: AACDE3;" text=" ">
+                     <graphic>
+                        <MFXFontIcon description="mfx-user" selectionFill="#4f77aa" size="25.0">
+                           <color>
+                              <Color red="0.30980393290519714" green="0.46666666865348816" blue="0.6666666865348816" />
+                           </color>
+                        </MFXFontIcon>
+                     </graphic>
+                  </MFXButton>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" />
+               </padding>
+            </FlowPane>
+         </children>
+      </GridPane>
+   </top>
+   <bottom>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="1280.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

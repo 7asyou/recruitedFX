@@ -1,0 +1,97 @@
+@import "fonts.css";
+ @import "commons.css";
+
+.account-text-field .floating-text {
+	-fx-font-family: "Inria Sans";
+	-fx-text-fill: #A9CAE2;
+	-fx-font-size: 15;
+}
+
+.account-text-field {
+	-fx-border-radius: 20;
+	-fx-border-width: 0.5;
+	-fx-border-color: #C1E3ED;
+
+	-fx-text-fill: #4F77AA;
+	-fx-pref-height: 40;
+	-fx-pref-width: 250;
+	-fx-border-radius: 30;
+}
+
+.login-link {
+	-fx-text-fill: #4F77AA;
+	-fx-font-family: "Inria Sans Light";
+	-fx-font-size: 12;
+}
+
+#create-account-logo {
+	-fx-font-family: "Hammersmith One";
+	-fx-font-size: 40;
+	-fx-fill: #3895D3;
+}
+
+#first-name .floating-text {
+	-fx-translate-x: 85;
+
+}
+
+#last-name .floating-text {
+	-fx-translate-x: 85;
+
+}
+
+#email .floating-text {
+	-fx-translate-x: 95;
+}
+
+
+#password .floating-text {
+	-fx-translate-x: 87;
+
+}
+
+#confirm-password .floating-text {
+	-fx-translate-x: 57;
+
+}
+
+.combo-role {
+	-fx-border-color: #ABCDE4;
+	-fx-background-color: white;
+	-fx-font-family: "Inria Sans Bold";
+
+	-fx-min-height: 40;
+	-fx-max-height: 40;
+
+	-fx-background-radius: 30;
+}
+
+.combo-role .floating-text {
+	-fx-font-size: 15;
+}
+
+.combo-role .combo-popup .virtual-flow {
+	-fx-background-color: white;
+	-fx-font-family: "Inria Sans Bold";
+	-fx-font-size: 12;
+
+}
+
+.combo-role .combo-popup .virtual-flow .mfx-combo-box-cell:selected {
+	-fx-background-color: #ABCDE4;
+}
+
+.combo-role .combo-popup .virtual-flow .mfx-combo-box-cell:hover {
+	-fx-background-color: #ABCDE4;
+	-fx-opacity: 0.6;
+}
+
+.combo-role .combo-popup .virtual-flow .data-label {
+	-fx-font-family: "Inria Sans Bold";
+
+}
+
+
+.password .floating-text {
+	-fx-translate-x: 90;
+}

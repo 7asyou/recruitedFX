@@ -2,7 +2,7 @@ package techaholic.recruited.Utils;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -20,11 +20,16 @@ import techaholic.recruited.App;
 public class SideBarLoader {
 
 	public static void init(ArrayList<String> sidebarContent) {
-		if (App.role == "admin") {
+
+		if (!Objects.isNull(App.user)) {
 			sidebarContent.add("Users");
+			if (App.user.getRole() == 0) {
+				sidebarContent.add("Users");
+			}
 		}
 		sidebarContent.add("Job Offers");
 		sidebarContent.add("Companies");
+		sidebarContent.add("Job Application");
 		sidebarContent.add("Events");
 		sidebarContent.add("Articles");
 		sidebarContent.add("Complaints");

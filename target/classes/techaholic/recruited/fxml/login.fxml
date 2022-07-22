@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
@@ -22,36 +22,37 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <FlowPane alignment="CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL" prefHeight="589.0" prefWidth="355.0" rowValignment="TOP" styleClass="flex-pane" stylesheets="@../css/stylesheet.css" vgap="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <FlowPane alignment="CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL" prefHeight="589.0" prefWidth="355.0" rowValignment="TOP" styleClass="flex-pane" stylesheets="@../css/login.css" vgap="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Text id="login-logo" strokeType="OUTSIDE" strokeWidth="0.0" text="Recruited">
+            <Text id="login-logo" fx:id="loginLogo" strokeType="OUTSIDE" strokeWidth="0.0" text="Recruited">
                <FlowPane.margin>
-                  <Insets bottom="25.0" top="80.0" />
+                  <Insets bottom="25.0" top="60.0" />
                </FlowPane.margin>
             </Text>
-            <MFXTextField id="login-email" alignment="CENTER" floatingText="E-mail" layoutX="123.0" layoutY="313.0" styleClass="login-text-field" stylesheets="@../css/stylesheet.css">
+            <MFXTextField id="login-email" fx:id="emailField" alignment="CENTER" floatingText="E-mail" layoutX="123.0" layoutY="313.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="42.0" styleClass="login-field">
                <textFill>
                   <Color />
-               </textFill></MFXTextField>
-            <MFXTextField id="login-password" alignment="CENTER" floatingText="Password" layoutX="123.0" layoutY="337.0" styleClass="login-text-field">
-               <textFill>
-                  <Color red="1.0" green="1.0" blue="1.0" />
-               </textFill></MFXTextField>
-            <MFXButton onAction="#goToCreateAccount" style="-fx-background-radius: 25; -fx-border-radius: 25;" text="create an account">
+               </textFill>
                <FlowPane.margin>
-                  <Insets bottom="60.0" top="15.0" />
+                  <Insets bottom="10.0" />
+               </FlowPane.margin></MFXTextField>
+            <MFXPasswordField id="login-password" fx:id="passwordField" floatingText="Password" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="42.0" styleClass="login-text-field">
+               <FlowPane.margin>
+                  <Insets bottom="5.0" />
                </FlowPane.margin>
-               <styleClass>
-                  <String fx:value="link-button" />
-                  <String fx:value="login-link" />
-               </styleClass>
+            </MFXPasswordField>
+            <MFXButton fx:id="login" styleClass="login-button" text="Login" />
+            <MFXButton fx:id="createAccount" onAction="#goToCreateAccount" style="-fx-background-radius: 25; -fx-border-radius: 25;" styleClass="link-button" text="create an account">
+               <FlowPane.margin>
+                  <Insets bottom="40.0" top="15.0" />
+               </FlowPane.margin>
             </MFXButton>
-            <MFXButton layoutX="160.0" layoutY="440.0" styleClass="links" text="contact us">
+            <MFXButton fx:id="contactUs" layoutX="160.0" layoutY="440.0" styleClass="links" text="contact us">
                <FlowPane.margin>
                   <Insets />
                </FlowPane.margin>
             </MFXButton>
-            <MFXButton layoutX="160.0" layoutY="476.0" styleClass="links" text="about us">
+            <MFXButton fx:id="aboutUs" layoutX="160.0" layoutY="476.0" styleClass="links" text="about us">
                <FlowPane.margin>
                   <Insets bottom="20.0" />
                </FlowPane.margin></MFXButton>

@@ -21,4 +21,44 @@ public class SceneChanger {
 		App.setRoot("createJobOffer");
 	}
 
+	public static void toArticles() throws IOException {
+		App.setRoot("articles");
+	}
+
+	public static void toCreateArticle() throws IOException {
+		App.setRoot("createArticle");
+	}
+
+	public static void toEntreprises() throws IOException {
+		App.setRoot("entreprises");
+	}
+
+	public static void toCreateEntreprise() throws IOException {
+		App.setRoot("createEntreprise");
+	}
+
+	public static void toEvents() throws IOException {
+		App.setRoot("events");
+	}
+
+	public static void toCreateEvent() throws IOException {
+		App.setRoot("createEvent");
+	}
+
+	public static void toJobApplications() throws IOException {
+		App.setRoot("jobApplications");
+	}
+
+	public static void toComplaints() throws IOException {
+		App.setRoot("complaints");
+	}
+
+	public static void toCreateComplaint() throws IOException {
+		App.setRoot("createComplaint");
+	}
+
+	public static void toUsers() throws IOException {
+		App.setRoot("users");
+	}
+
 }

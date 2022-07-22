@@ -1,4 +1,4 @@
-package techaholic.recruited.Crud.Service;
+package techaholic.recruited.CRUD.Service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import techaholic.recruited.Crud.Entite.Entreprise;
+import techaholic.recruited.CRUD.Entite.Entreprise;
 // import javafx.concurrent.Service;
 import techaholic.recruited.Utils.DataSource;
 

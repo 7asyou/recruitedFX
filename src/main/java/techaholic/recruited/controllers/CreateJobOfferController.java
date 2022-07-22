@@ -4,6 +4,7 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
@@ -16,6 +17,7 @@ import io.github.palexdev.materialfx.validation.Constraint;
 import io.github.palexdev.materialfx.validation.Severity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -24,8 +26,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Region;
-import techaholic.recruited.Crud.Entite.JobOffer;
-import techaholic.recruited.Crud.Service.ServiceJobOffer;
+import javafx.scene.text.Text;
+import techaholic.recruited.CRUD.Entite.JobOffer;
+import techaholic.recruited.CRUD.Service.ServiceJobOffer;
 import techaholic.recruited.Utils.Locations;
 import techaholic.recruited.Utils.SceneChanger;
 import techaholic.recruited.Utils.SideBarLoader;
@@ -53,9 +56,24 @@ public class CreateJobOfferController implements Initializable {
 	@FXML
 	MFXButton add;
 
+	@FXML
+	Label positionNotValid;
+	@FXML
+	Text locationVal;
+	@FXML
+	Text descriptionVal;
+
+	private static final PseudoClass INVALID_PSEUDO_CLASS = PseudoClass.getPseudoClass("invalid");
+	boolean valid = true;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		SideBarLoader.sideBarFill(sidebar);
+
+		positionNotValid.setVisible(false);
+		locationVal.setVisible(false);
+		descriptionVal.setVisible(false);
+
 		locations.setItems(Locations.locations());
 		ObservableList<MFXTextField> tagsObservableList = FXCollections.observableArrayList(new ArrayList<>());
 		deadline.setValue(deadline.getCurrentDate());
@@ -83,19 +101,7 @@ public class CreateJobOfferController implements Initializable {
 			}
 
 		});
-		Constraint lengthConstraint = Constraint.Builder.build()
-				.setSeverity(Severity.ERROR)
-				.setMessage("Password must be at least 8 characters long")
-				.setCondition(positionTitle.textProperty().length().greaterThanOrEqualTo(1))
-				.get();
-		positionTitle.getValidator().constraint(lengthConstraint);
 
-		positionTitle.getValidator().validProperty().addListener((observable, oldValue, newValue) -> {
-			if (newValue) {
-				validationLabel.setVisible(false);
-				passwordField.pseudoClassStateChanged(INVALID_PSEUDO_CLASS, false);
-			}
-		});
 		add.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -115,7 +121,16 @@ public class CreateJobOfferController implements Initializable {
 				int durationValue = (int) duration.getValue();
 				String descriptionValue = description.getText();
 
-				System.out.println(tags);
+				if (positionTitleValue.length() <= 0) {
+					positionNotValid.setVisible(true);
+					valid = false;
+				}
+				if (locations.getValue().length() <= 0) {
+					locationVal.setVisible(true);
+				}
+				if (description.getText().length() <= 0) {
+					descriptionVal.setVisible(true);
+				}
 
 				JobOffer jobOffer = new JobOffer(
 						positionTitleValue,
@@ -126,12 +141,14 @@ public class CreateJobOfferController implements Initializable {
 						durationValue,
 						descriptionValue);
 
-				ServiceJobOffer serviceJobOffer = new ServiceJobOffer();
-				try {
-					serviceJobOffer.create(jobOffer);
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				if (valid) {
+					ServiceJobOffer serviceJobOffer = new ServiceJobOffer();
+					try {
+						serviceJobOffer.create(jobOffer);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 
 			}

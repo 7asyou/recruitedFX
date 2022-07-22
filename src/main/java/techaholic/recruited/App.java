@@ -11,7 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import techaholic.recruited.Crud.Entite.User;
+import techaholic.recruited.CRUD.Entite.User;
 import techaholic.recruited.Utils.SideBarLoader;
 
 /**
@@ -20,7 +20,8 @@ import techaholic.recruited.Utils.SideBarLoader;
 public class App extends Application {
 	static public User user;
 	public static ArrayList<String> sidebarContent = new ArrayList<>();
-	public static String role = "admin";
+
+	public static int[] roles = { 0, 1, 2 };
 
 	private static Scene scene;
 
@@ -29,7 +30,7 @@ public class App extends Application {
 		CSSFX.start();
 		SideBarLoader.init(sidebarContent);
 		// stage.initStyle(StageStyle.TRANSPARENT);
-		scene = new Scene(loadFXML("jobOffers"), 1280, 720);
+		scene = new Scene(loadFXML("login"), 1280, 720);
 		scene.getStylesheets().add("css/stylesheet.css");
 		stage.setScene(scene);
 		stage.show();

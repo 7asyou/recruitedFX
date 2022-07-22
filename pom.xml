@@ -30,6 +30,11 @@
     		<version>11.14.0-EA3</version>
     	</dependency>
 
+	   <dependency>
+            <groupId>com.courier</groupId>
+            <artifactId>courier-java</artifactId>
+            <version>1.4.0</version>
+		</dependency>
 
     	<dependency>
     		<groupId>mysql</groupId>
@@ -42,6 +47,7 @@
             <artifactId>javafx-controls</artifactId>
             <version>18.0.1</version>
         </dependency>
+		
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>

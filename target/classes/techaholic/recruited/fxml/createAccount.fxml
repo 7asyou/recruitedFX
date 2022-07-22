@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
@@ -25,28 +25,26 @@
          <children>
             <Text id="create-account-logo" strokeType="OUTSIDE" strokeWidth="0.0" text="Recruited">
                <FlowPane.margin>
-                  <Insets bottom="30.0" />
+                  <Insets bottom="10.0" />
                </FlowPane.margin></Text>
-            <MFXTextField id="first-name" alignment="CENTER" floatMode="BORDER" floatingText="First name" styleClass="account-text-field" />
-            <MFXTextField id="last-name" alignment="CENTER" floatMode="BORDER" floatingText="Last name" layoutX="123.0" layoutY="288.0" styleClass="account-text-field" />
-            <MFXTextField id="email" alignment="CENTER" floatMode="BORDER" floatingText="E-mail" layoutX="123.0" layoutY="313.0" styleClass="account-text-field" />
-            <MFXTextField id="password" alignment="CENTER" floatMode="BORDER" floatingText="Password" layoutX="123.0" layoutY="337.0" styleClass="account-text-field" />
-            <MFXTextField id="confirm-password" alignment="CENTER" floatMode="BORDER" floatingText="Confirm password" layoutX="123.0" layoutY="362.0" styleClass="account-text-field">
+            <MFXTextField id="first-name" fx:id="firstName" alignment="CENTER" floatMode="BORDER" floatingText="First name" styleClass="account-text-field" />
+            <MFXTextField id="last-name" fx:id="lastName" alignment="CENTER" floatMode="BORDER" floatingText="Last name" layoutX="123.0" layoutY="288.0" styleClass="account-text-field" />
+            <MFXTextField id="email" fx:id="email" alignment="CENTER" floatMode="BORDER" floatingText="E-mail" layoutX="123.0" layoutY="313.0" styleClass="account-text-field" />
+            <MFXTextField id="password" fx:id="password" alignment="CENTER" floatMode="BORDER" floatingText="Password" layoutX="123.0" layoutY="337.0" styleClass="account-text-field" />
+            <MFXTextField id="confirm-password" fx:id="confirm" alignment="CENTER" floatMode="BORDER" floatingText="Confirm password" layoutX="123.0" layoutY="362.0" styleClass="account-text-field">
                <FlowPane.margin>
-                  <Insets bottom="20.0" />
+                  <Insets bottom="5.0" />
                </FlowPane.margin></MFXTextField>
-            <MFXButton onAction="#goToLogin" style="-fx-background-radius: 25; -fx-border-radius: 25;" text="I already have an account">
+            <MFXComboBox fx:id="role" floatingText="Role" styleClass="combo-role" />
+            <MFXButton fx:id="signin" styleClass="list-button" text="sign in" />
+            <MFXButton onAction="#goToLogin" style="-fx-background-radius: 25; -fx-border-radius: 25;" styleClass="link-button" text="I already have an account">
                <FlowPane.margin>
-                  <Insets bottom="20.0" />
+                  <Insets bottom="5.0" />
                </FlowPane.margin>
-               <styleClass>
-                  <String fx:value="link-button" />
-                  <String fx:value="login-link" />
-               </styleClass>
             </MFXButton>
             <MFXButton layoutX="160.0" layoutY="440.0" styleClass="links" text="contact us">
                <FlowPane.margin>
-                  <Insets top="10.0" />
+                  <Insets />
                </FlowPane.margin>
             </MFXButton>
             <MFXButton layoutX="160.0" layoutY="476.0" styleClass="links" text="about us" />

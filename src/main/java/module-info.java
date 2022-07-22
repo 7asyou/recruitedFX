@@ -3,7 +3,7 @@ module techaholic.recruited {
 	requires javafx.controls;
 	requires javafx.fxml;
 	requires fr.brouillard.oss.cssfx;
-
+	requires courier.java;
 	requires java.sql;
 
 	requires VirtualizedFX;

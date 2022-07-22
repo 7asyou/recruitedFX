@@ -35,9 +35,8 @@ import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.text.FontSmoothingType;
 import javafx.scene.text.Text;
-
-import techaholic.recruited.Crud.Entite.JobOffer;
-import techaholic.recruited.Crud.Service.ServiceJobOffer;
+import techaholic.recruited.CRUD.Entite.JobOffer;
+import techaholic.recruited.CRUD.Service.ServiceJobOffer;
 import techaholic.recruited.Utils.SceneChanger;
 import techaholic.recruited.Utils.SideBarLoader;
 

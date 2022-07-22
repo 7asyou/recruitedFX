@@ -1,4 +1,4 @@
-package techaholic.recruited.Crud.Entite;
+package techaholic.recruited.CRUD.Entite;
 
 import java.sql.Date;
 
