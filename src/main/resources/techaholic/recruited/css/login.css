@@ -4,19 +4,23 @@
 #login-logo {
 	-fx-font-family: "Hammersmith One";
 	-fx-font-size: 50;
-	-fx-fill: #3895D3;
+	-fx-fill: #3895d3;
 }
 
 .login-field {
 	-fx-font-size: 16;
 	-fx-border-color: transparent;
-	-fx-background-color: #A9CAE2;
-	-fx-alignment: center;
+	-fx-background-color: #a9cae2;
+	-fx-alignment: center-left;
 	-fx-text-fill: white;
-	-fx-pref-height: 45;
+	-fx-pref-height: 60;
+
 	-fx-pref-width: 250;
 	-fx-background-radius: 30;
 	-fx-padding: 10 0 10 0;
+}
+.login-field .text-field {
+	-fx-padding: 0 0 0 50;
 }
 
 .login-field .floating-text {
@@ -26,22 +30,17 @@
 	-fx-background-color: transparent;
 }
 
-.login-field .mfx-icon-wrapper{
-	-fx-translate-x:-10;
-}
-
-#login-password .floating-text {
-
-	-fx-translate-x: 87;
-}
-
 #login-email .floating-text {
 	-fx-translate-x: 95;
 }
 
+#login-password .floating-text {
+	-fx-translate-x: 90;
+}
+
 .login-button {
-	-fx-background-color: #ABCDE4;
-	-fx-text-fill: #4F77AA;
+	-fx-background-color: #abcde4;
+	-fx-text-fill: #4f77aa;
 	-fx-font-family: "Inria Sans Bold";
 	-fx-font-size: 16;
 	-fx-alignment: center;
@@ -50,12 +49,7 @@
 	-fx-max-width: 68;
 	-fx-min-height: 30;
 	-fx-max-height: 30;
-
 }
-
-
-
-
-
-
-
+.validation-text {
+	-fx-font-family: "Inria Sans Bold";
+}

@@ -13,6 +13,11 @@ public class SceneChanger {
 		App.setRoot("login");
 	}
 
+	@FXML
+	public static void toCreateAccount()throws IOException{
+		App.setRoot("createAccount");
+	}
+
 	public static void toJobOffers() throws IOException {
 		App.setRoot("jobOffers");
 	}

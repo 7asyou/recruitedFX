@@ -1,3 +1,7 @@
 {
-	"java.configuration.updateBuildConfiguration": "interactive"
+	"java.configuration.updateBuildConfiguration": "interactive",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[xml]": {
+		"editor.defaultFormatter": "redhat.vscode-xml"
+	}
 }

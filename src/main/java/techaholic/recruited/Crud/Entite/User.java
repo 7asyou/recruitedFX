@@ -7,9 +7,9 @@ public class User {
 	private int Role;
 	private int PhoneNumber;
 	private String Email;
-	private int PasswordHash;
+	private String PasswordHash;
 
-	public User(int id, String firstName, String lastName, int role, int phoneNumber, String email, int passwordHash) {
+	public User(int id, String firstName, String lastName, int role, int phoneNumber, String email, String passwordHash) {
 		Id = id;
 		FirstName = firstName;
 		LastName = lastName;
@@ -19,7 +19,7 @@ public class User {
 		PasswordHash = passwordHash;
 	}
 
-	public User(String firstName, String lastName, int role, int phoneNumber, String email, int passwordHash) {
+	public User(String firstName, String lastName, int role, int phoneNumber, String email, String passwordHash) {
 		FirstName = firstName;
 		LastName = lastName;
 		Role = role;
@@ -76,6 +76,14 @@ public class User {
 		Email = email;
 	}
 
+	
+	public String getPasswordHash() {
+		return PasswordHash;
+	}
+	
+	public void setPasswordHash(String passwordHash) {
+		PasswordHash = passwordHash;
+	}
 	@Override
 	public String toString() {
 		return "User{" +
@@ -87,13 +95,5 @@ public class User {
 				", Email='" + Email + '\'' +
 				", PasswordHash='" + PasswordHash + '\'' +
 				'}';
-	}
-
-	public int getPasswordHash() {
-		return PasswordHash;
-	}
-
-	public void setPasswordHash(int passwordHash) {
-		PasswordHash = passwordHash;
 	}
 }

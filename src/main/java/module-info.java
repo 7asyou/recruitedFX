@@ -5,6 +5,7 @@ module techaholic.recruited {
 	requires fr.brouillard.oss.cssfx;
 	requires courier.java;
 	requires java.sql;
+	requires commons.validator;
 
 	requires VirtualizedFX;
 	requires MaterialFX;

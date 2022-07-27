@@ -1,15 +1,14 @@
 @import "fonts.css";
-.button{
+.button {
 	-fx-font-smoothing-type: gray;
 }
-.mfx-button{
+.mfx-button {
 	-fx-font-smoothing-type: gray;
 }
 
 .mfx-text-field .floating-text {
 	-fx-font-family: "Inria Sans";
 	-fx-font-size: 15;
-	
 }
 
 .mfx-text-field {
@@ -21,36 +20,34 @@
 .link-button {
 	-fx-background-color: transparent;
 	-fx-background-radius: 100;
-	-fx-text-fill:#A9CAE2;
+	-fx-text-fill: #a9cae2;
 }
-
 
 .link-button:hover {
 	-fx-underline: true;
 	-fx-background-radius: 100;
-
 }
 
 .link-button:armed,
 .link-button:focused {
-	-fx-text-fill: #4F77AA;
+	-fx-text-fill: #4f77aa;
 	-fx-background-radius: 100;
 }
 
 .link-button .mfx-ripple-generator {
 	-fx-background-radius: 100;
-	-mfx-ripple-color: #D9E9FF;
+	-mfx-ripple-color: #d9e9ff;
 }
 
 .link-button {
-	-fx-text-fill: #4F77AA;
+	-fx-text-fill: #4f77aa;
 	-fx-font-family: "Inria Sans Light";
 	-fx-font-size: 12;
 }
 
 .links {
 	-fx-font-family: "Inria Sans";
-	-fx-text-fill: #D2E1E6;
+	-fx-text-fill: #d2e1e6;
 	-fx-font-size: 14;
 }
 
@@ -60,21 +57,13 @@
 	-fx-background-color: white;
 }
 
-#home {
-	-fx-background-image: url('../images/home.jpg');
-	-fx-background-position: 820;
-	-fx-background-size: 1124 750;
-
-}
-
 .label {
-	-fx-text-fill: #4F77AA;
+	-fx-text-fill: #4f77aa;
 	-fx-font-smoothing-type: gray;
-
 }
 
 .mfx-button .mfx-ripple-generator {
-	-mfx-ripple-color: #D9E9FF;
+	-mfx-ripple-color: #d9e9ff;
 }
 
 /* .mfx-button .text{
@@ -88,8 +77,8 @@
 	-fx-background-color: transparent;
 
 	-track-color: rgba(255, 255, 255, 0.3);
-	-thumb-color: #D4E4EE;
-	-thumb-hover-color: #ABCDE4;
+	-thumb-color: #d4e4ee;
+	-thumb-hover-color: #abcde4;
 }
 
 .mfx-slider .track .mfx-font-icon {
@@ -104,9 +93,9 @@
 
 .mfx-date-picker {
 	-fx-border-color: transparent;
-	-fx-background-color: #ABCDE4;
+	-fx-background-color: #abcde4;
 	-fx-font-family: "Inria Sans Bold";
-	-fx-text-fill: #4F77AA;
+	-fx-text-fill: #4f77aa;
 
 	-fx-min-height: 40;
 	-fx-max-height: 40;
@@ -120,11 +109,25 @@
 }
 
 .mfx-date-picker .mfx-icon-wrapper .mfx-font-icon {
-	-mfx-color: #4F77AA;
+	-mfx-color: #4f77aa;
 }
 
 .mfx-date-picker .date-picker-popup .months-combo,
 .mfx-date-picker .date-picker-popup .years-combo {
+	-fx-text-fill: #4f77aa;
+}
+#home {
+	-fx-background-image: url("../images/home.jpg");
+	-fx-background-position: 825;
+	-fx-background-size: 1124 760;
+}
 
-	-fx-text-fill: #4F77AA;
+.dialoge-close-button:hover {
+	-fx-underline: true;
+}
+.dialoge-button:hover {
+	-fx-underline: true;
+}
+.dialoge-pane {
+	-fx-effect: dropshadow(gaussian, rgba(79, 119, 170, 0.5), 1, 0, 1, 1);
 }

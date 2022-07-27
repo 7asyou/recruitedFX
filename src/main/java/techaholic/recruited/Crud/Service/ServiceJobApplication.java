@@ -84,7 +84,7 @@ public class ServiceJobApplication implements IService<JobApplication> {
 		ArrayList<JobApplication> jobApplications = new ArrayList<>();
 		resultSet = statement.executeQuery("SELECT * FROM `job_application`");
 
-		ServiceUser serviceUser = new ServiceUser();
+		ServiceUser serviceUser = ServiceUser.getInstance();
 		ServiceJobOffer serviceJobOffer = new ServiceJobOffer();
 		while (resultSet.next()) {
 			jobApplications.add(

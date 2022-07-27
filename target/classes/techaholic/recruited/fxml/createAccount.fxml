@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: E3F2F6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="techaholic.recruited.controllers.CreateAccountController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: E3F2F6;" stylesheets="@../css/createAccount.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="techaholic.recruited.controllers.CreateAccountController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="739.0" />
     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="541.0" />
@@ -21,38 +23,62 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL" prefHeight="589.0" prefWidth="355.0" rowValignment="TOP" styleClass="flex-pane" stylesheets="@../css/stylesheet.css" vgap="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Pane id="home" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+         <stylesheets>
+            <URL value="@../css/createAccount.css" />
+            <URL value="@../css/commons.css" />
+         </stylesheets></Pane>
+      <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="355.0" styleClass="flex-pane" stylesheets="@../css/createAccount.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.0" minHeight="15.0" prefHeight="45.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
             <Text id="create-account-logo" strokeType="OUTSIDE" strokeWidth="0.0" text="Recruited">
-               <FlowPane.margin>
-                  <Insets bottom="10.0" />
-               </FlowPane.margin></Text>
-            <MFXTextField id="first-name" fx:id="firstName" alignment="CENTER" floatMode="BORDER" floatingText="First name" styleClass="account-text-field" />
-            <MFXTextField id="last-name" fx:id="lastName" alignment="CENTER" floatMode="BORDER" floatingText="Last name" layoutX="123.0" layoutY="288.0" styleClass="account-text-field" />
-            <MFXTextField id="email" fx:id="email" alignment="CENTER" floatMode="BORDER" floatingText="E-mail" layoutX="123.0" layoutY="313.0" styleClass="account-text-field" />
-            <MFXTextField id="password" fx:id="password" alignment="CENTER" floatMode="BORDER" floatingText="Password" layoutX="123.0" layoutY="337.0" styleClass="account-text-field" />
-            <MFXTextField id="confirm-password" fx:id="confirm" alignment="CENTER" floatMode="BORDER" floatingText="Confirm password" layoutX="123.0" layoutY="362.0" styleClass="account-text-field">
-               <FlowPane.margin>
-                  <Insets bottom="5.0" />
-               </FlowPane.margin></MFXTextField>
-            <MFXComboBox fx:id="role" floatingText="Role" styleClass="combo-role" />
-            <MFXButton fx:id="signin" styleClass="list-button" text="sign in" />
-            <MFXButton onAction="#goToLogin" style="-fx-background-radius: 25; -fx-border-radius: 25;" styleClass="link-button" text="I already have an account">
-               <FlowPane.margin>
-                  <Insets bottom="5.0" />
-               </FlowPane.margin>
-            </MFXButton>
-            <MFXButton layoutX="160.0" layoutY="440.0" styleClass="links" text="contact us">
-               <FlowPane.margin>
-                  <Insets />
-               </FlowPane.margin>
-            </MFXButton>
-            <MFXButton layoutX="160.0" layoutY="476.0" styleClass="links" text="about us" />
+               <GridPane.margin>
+                  <Insets bottom="15.0" />
+               </GridPane.margin>
+            </Text>
+            <MFXTextField id="first-name" fx:id="firstName" alignment="CENTER" floatMode="BORDER" floatingText="First name" styleClass="account-text-field" GridPane.rowIndex="1" />
+            <MFXTextField id="last-name" fx:id="lastName" alignment="CENTER" floatMode="BORDER" floatingText="Last name" styleClass="account-text-field" GridPane.rowIndex="3" />
+            <MFXTextField id="email" fx:id="email" alignment="CENTER" floatMode="BORDER" floatingText="E-mail" styleClass="account-text-field" GridPane.rowIndex="5" />
+            <MFXButton fx:id="signup" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" styleClass="signup-button" text="sign up" GridPane.rowIndex="11" />
+            <MFXButton fx:id="toLogin" style="-fx-background-radius: 25; -fx-border-radius: 25;" styleClass="link-button" text="I already have an account" GridPane.rowIndex="12" />
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="14">
+               <children>
+                  <MFXButton styleClass="links" text="contact us" />
+                  <MFXButton styleClass="links" text="about us" />
+               </children>
+            </FlowPane>
+            <Text fx:id="invalidFirstName" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="invalid" text="   " GridPane.rowIndex="2">
+               <font>
+                  <Font name="Inria Sans Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fx:id="invalidLastName" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="invalid" text="   " GridPane.rowIndex="4" />
+            <Text fx:id="invalidEmail" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="invalid" text="   " GridPane.rowIndex="6" />
+            <Text fx:id="invalidPassword" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="invalid" text="   " GridPane.rowIndex="8" />
+            <Text fx:id="invalidConfirmPassword" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="invalid" text="   " GridPane.rowIndex="10" />
+            <MFXPasswordField id="password" fx:id="password" floatingText="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="41.6" styleClass="account-text-field" GridPane.rowIndex="7" />
+            <MFXPasswordField id="confirm-password" fx:id="confirmPassword" floatingText="confirm password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="41.6" styleClass="account-text-field" GridPane.rowIndex="9" />
          </children>
-         <padding>
-            <Insets top="50.0" />
-         </padding>
-      </FlowPane>
-      <Pane id="home" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/stylesheet.css" GridPane.rowIndex="1" />
+      </GridPane>
    </children>
 </GridPane>

@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Text?>
 
 
-<FlowPane fx:id="flowPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="techaholic.recruited.controllers.TestingController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/testing.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="techaholic.recruited.controllers.TestingController">
    <children>
-      <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <FlowPane fx:id="flowPane" layoutX="270.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="test" text="Text" />
+         </children>
+      </FlowPane>
+      <TextField layoutX="104.0" layoutY="141.0" styleClass="test" />
+      <MFXTextField fx:id="input" layoutX="104.0" layoutY="189.0" />
    </children>
-</FlowPane>
+</AnchorPane>

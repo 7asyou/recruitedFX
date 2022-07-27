@@ -3,61 +3,131 @@
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: E3F2F6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="techaholic.recruited.controllers.LoginController">
-   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="739.0" />
-      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="541.0" />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-   </rowConstraints>
+<StackPane fx:id="backgroundStack" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="techaholic.recruited.controllers.LoginController">
    <children>
-      <FlowPane alignment="CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL" prefHeight="589.0" prefWidth="355.0" rowValignment="TOP" styleClass="flex-pane" stylesheets="@../css/login.css" vgap="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <GridPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: E3F2F6;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="739.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="541.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
          <children>
-            <Text id="login-logo" fx:id="loginLogo" strokeType="OUTSIDE" strokeWidth="0.0" text="Recruited">
-               <FlowPane.margin>
-                  <Insets bottom="25.0" top="60.0" />
-               </FlowPane.margin>
-            </Text>
-            <MFXTextField id="login-email" fx:id="emailField" alignment="CENTER" floatingText="E-mail" layoutX="123.0" layoutY="313.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="42.0" styleClass="login-field">
-               <textFill>
-                  <Color />
-               </textFill>
-               <FlowPane.margin>
-                  <Insets bottom="10.0" />
-               </FlowPane.margin></MFXTextField>
-            <MFXPasswordField id="login-password" fx:id="passwordField" floatingText="Password" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="42.0" styleClass="login-text-field">
-               <FlowPane.margin>
-                  <Insets bottom="5.0" />
-               </FlowPane.margin>
-            </MFXPasswordField>
-            <MFXButton fx:id="login" styleClass="login-button" text="Login" />
-            <MFXButton fx:id="createAccount" onAction="#goToCreateAccount" style="-fx-background-radius: 25; -fx-border-radius: 25;" styleClass="link-button" text="create an account">
-               <FlowPane.margin>
-                  <Insets bottom="40.0" top="15.0" />
-               </FlowPane.margin>
-            </MFXButton>
-            <MFXButton fx:id="contactUs" layoutX="160.0" layoutY="440.0" styleClass="links" text="contact us">
-               <FlowPane.margin>
-                  <Insets />
-               </FlowPane.margin>
-            </MFXButton>
-            <MFXButton fx:id="aboutUs" layoutX="160.0" layoutY="476.0" styleClass="links" text="about us">
-               <FlowPane.margin>
-                  <Insets bottom="20.0" />
-               </FlowPane.margin></MFXButton>
+            <Pane id="home" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <stylesheets>
+                  <URL value="@../css/createAccount.css" />
+                  <URL value="@../css/commons.css" />
+               </stylesheets></Pane>
+            <GridPane fx:id="grid" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="355.0" styleClass="flex-pane" stylesheets="@../css/login.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="-Infinity" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="183.2" minHeight="10.0" prefHeight="183.2" valignment="BOTTOM" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" valignment="TOP" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" valignment="TOP" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="78.80002441406248" minHeight="10.0" prefHeight="78.80002441406248" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="51.60001220703123" minHeight="10.0" prefHeight="33.99997558593748" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text fx:id="emailMessage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="validation-text" text="         " GridPane.rowIndex="2" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="Inria Sans Regular" size="12.0" />
+                     </font></Text>
+                  <Text id="login-logo" fx:id="loginLogo1" strokeType="OUTSIDE" strokeWidth="0.0" text="Recruited">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <MFXTextField id="login-email" fx:id="emailField" alignment="CENTER" floatingText="E-mail" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="42.0" styleClass="login-field" GridPane.rowIndex="1">
+                     <textFill>
+                        <Color />
+                     </textFill>
+                  </MFXTextField>
+                  <MFXPasswordField id="login-password" fx:id="passwordField" alignment="CENTER" floatingText="Password" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" styleClass="login-field" GridPane.rowIndex="3">
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </MFXPasswordField>
+                  <MFXButton fx:id="createAccount" onAction="#goToCreateAccount" style="-fx-background-radius: 25; -fx-border-radius: 25;" styleClass="link-button" text="create an account" GridPane.rowIndex="5" />
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="7">
+                     <children>
+                        <MFXButton fx:id="contactUs" contentDisplay="CENTER" styleClass="links" text="contact us" />
+                        <MFXButton fx:id="aboutUs" contentDisplay="CENTER" styleClass="links" text="about us" />
+                     </children>
+                  </FlowPane>
+                  <Text fx:id="passwordMessage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="validation-text" text="       " GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Inria Sans Light" size="12.0" />
+                     </font></Text>
+               </children>
+            </GridPane>
          </children>
-      </FlowPane>
-      <Pane id="home" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/stylesheet.css" GridPane.rowIndex="1" />
+      </GridPane>
+      <StackPane fx:id="foregroundStack" prefHeight="150.0" prefWidth="200.0" stylesheets="@../css/commons.css">
+         <children>
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" opacity="0.77" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+            <GridPane blendMode="SRC_ATOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20;" styleClass="dialoge-pane" StackPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="54.60001220703125" minHeight="10.0" prefHeight="37.19999198913575" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="106.60001029968262" minHeight="10.0" prefHeight="96.80000801086427" valignment="TOP" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text fx:id="errorTitle" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Error title:">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="Inria Sans Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="errorDescription" fill="#4f77aa" strokeType="OUTSIDE" strokeWidth="0.0" text="Description body: Lorem Ipisum" textAlignment="JUSTIFY" wrappingWidth="236.53674507141113" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets top="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="Inria Sans Regular" size="12.0" />
+                     </font>
+                  </Text>
+                  <MFXButton fx:id="errorButton" styleClass="dialoge-button" text="Create Account" textFill="#4f77aa" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font name="Inria Sans Bold" size="12.0" />
+                     </font>
+                  </MFXButton>
+                  <MFXButton fx:id="closeButton" prefHeight="26.0" prefWidth="64.0" styleClass="dialoge-close-button" text="Close" textFill="RED" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font name="Inria Sans Bold" size="12.0" />
+                     </font>
+                  </MFXButton>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+            </GridPane>
+         </children>
+      </StackPane>
    </children>
-</GridPane>
+</StackPane>

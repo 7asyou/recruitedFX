@@ -3,45 +3,46 @@ package techaholic.recruited.controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXPasswordField;
-import io.github.palexdev.materialfx.validation.Constraint;
-import io.github.palexdev.materialfx.validation.Severity;
-import javafx.beans.binding.Bindings;
-import javafx.css.PseudoClass;
+import io.github.palexdev.materialfx.controls.MFXTextField;
+import io.github.palexdev.materialfx.dialogs.MFXDialogs;
+import io.github.palexdev.materialfx.dialogs.MFXGenericDialog;
+import io.github.palexdev.materialfx.dialogs.MFXGenericDialogBuilder;
+import io.github.palexdev.materialfx.dialogs.MFXStageDialog;
+import io.github.palexdev.materialfx.enums.ScrimPriority;
+import io.github.palexdev.materialfx.font.MFXFontIcon;
+import javafx.application.Platform;
+import javafx.beans.property.ReadOnlyBooleanProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import techaholic.recruited.App;
+
 import techaholic.recruited.CRUD.Entite.User;
 import techaholic.recruited.CRUD.Service.ServiceUser;
 import techaholic.recruited.Utils.SceneChanger;
-import io.github.palexdev.materialfx.controls.MFXPasswordField;
-import io.github.palexdev.materialfx.controls.MFXTextField;
-import io.github.palexdev.materialfx.validation.Constraint;
-import io.github.palexdev.materialfx.validation.Severity;
-import javafx.beans.binding.Bindings;
-import javafx.css.PseudoClass;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
+import techaholic.recruited.Utils.Validator;
 
 public class LoginController implements Initializable {
-
-	private static final PseudoClass INVALID_PSEUDO_CLASS = PseudoClass.getPseudoClass("invalid");
-	// Because fuck regex, stupid shit
-	private static final String[] upperChar = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z".split(" ");
-	private static final String[] lowerChar = "a b c d e f g h i j k l m n o p q r s t u v w x y z".split(" ");
-	private static final String[] digits = "0 1 2 3 4 5 6 7 8 9".split(" ");
-	private static final String[] specialCharacters = "! @ # & ( ) – [ { } ]: ; ' , ? / * ~ $ ^ + = < > -".split(" ");
+	
 	@FXML
 	private MFXTextField emailField;
 
@@ -49,92 +50,216 @@ public class LoginController implements Initializable {
 	private MFXPasswordField passwordField;
 
 	@FXML
-	private Label validationLabel;
-	@FXML
-	private Label emailValid;
-
-	@FXML
 	private MFXButton login;
+	
+	@FXML
+	private Text loginValidation;
 
+	@FXML
+	private Text passwordValidation;
+	
+	@FXML
+	private GridPane background;
+
+	@FXML
+	private GridPane grid;
+	
+	@FXML
+	private Text emailMessage;
+	
+	@FXML
+	private Text passwordMessage;
+	
+	@FXML
+	private Text errorTitle;
+	
+	@FXML
+	private Text errorDescription;
+	
+	@FXML
+	private MFXButton errorButton;
+	
+	@FXML
+	private MFXButton closeButton;
+
+	@FXML
+	private StackPane backgroundStack;
+
+	@FXML
+	private StackPane foregroundStack;
+	
+
+	private MFXGenericDialog sqlExceptionContent;
+	private MFXStageDialog sqlException;
+	
+	
+	boolean isFocused = false;
+
+	
+	
 	@FXML
 	private void goToCreateAccount() throws IOException {
 		App.setRoot("createAccount");
 	}
-
-	@Override
+	
 	public void initialize(URL location, ResourceBundle resources) {
+		errorBoxInit2();
+		// errorBoxInit();
+		
+		passwordField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			
+			@Override
+			public void handle(KeyEvent key) {
+				if (key.getCode().equals(KeyCode.ENTER)){
+					try {
+						validateAndLogin(emailField.getText(),passwordField.getText());
 
-		Constraint lengthConstraint = Constraint.Builder.build()
-				.setSeverity(Severity.ERROR)
-				.setMessage("Password must be at least 8 characters long")
-				.setCondition(passwordField.textProperty().length().greaterThanOrEqualTo(8))
-				.get();
-
-		passwordField.getValidator().constraint(lengthConstraint);
-		emailField.getValidator().constraint(lengthConstraint);
-
-		passwordField.getValidator().validProperty().addListener((observable, oldValue, newValue) -> {
-			if (newValue) {
-				validationLabel.setVisible(false);
-				passwordField.pseudoClassStateChanged(INVALID_PSEUDO_CLASS, false);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}				
 			}
 		});
 
-		emailField.getValidator().validProperty().addListener((observable, oldValue, newValue) -> {
-			if (newValue) {
-				emailValid.setVisible(false);
-				emailField.pseudoClassStateChanged(INVALID_PSEUDO_CLASS, false);
-			}
-		});
 
-		login.setOnAction(new EventHandler<ActionEvent>() {
+		focusHandler(passwordField);
+		focusHandler(emailField);
+		
+		
+	}
+	
+
+	private void validateAndLogin(String email, String password) throws IOException{
+		// System.out.println(password);
+		if(Validator.validatePassword(password)&&Validator.validateEmail(email)){
+			ServiceUser serviceUser = ServiceUser.getInstance();
+
+			try {
+				App.user = serviceUser.findByCredential(emailField.getText().toString(), passwordField.getText().toString());
+				if((App.user != null)){
+					SceneChanger.toJobOffers();
+				}else{
+					// errorBoxHandler();
+					backgroundStack.getChildren().add(foregroundStack);
+
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		
+		}else if(!Validator.validateEmail(email)){
+			
+			passwordMessage.setText("please enter a valid email");
+			return;
+		}else if(!Validator.validatePassword(password)){
+			emailMessage.setText(" ");
+			passwordMessage.setText("please enter a valid password");
+		}
+	}
+
+	public void errorBoxHandler(){
+		MFXFontIcon errorIcon = new MFXFontIcon("mfx-exclamation-circle-filled", 18);
+		sqlExceptionContent.setHeaderIcon(errorIcon);
+		sqlExceptionContent.setHeaderText("No Match");
+	
+		convertDialogTo("mfx-error-dialog");
+		sqlException.showDialog();
+	}
+
+	private void convertDialogTo(String styleClass) {
+		sqlExceptionContent.getStyleClass().removeIf(
+				s -> s.equals("mfx-info-dialog") || s.equals("mfx-warn-dialog") || s.equals("mfx-error-dialog")
+		);
+
+		if (styleClass != null)
+			sqlExceptionContent.getStyleClass().add(styleClass);
+	}
+
+	private static  void focusHandler(MFXTextField t){
+		ChangeListener<Boolean>  focusedListener = (obserble,oldValue,newValue) ->{
+				if(newValue){
+					t.setMaxHeight(70);
+					t.setMinHeight(70);
+				}else{
+					t.setMaxHeight(60);
+					t.setMinHeight(60);
+
+		 		}
+		};
+
+		t.delegateFocusedProperty().addListener(focusedListener);
+
+	}
+	public void errorBoxInit(){
+		Platform.runLater(()->{
+			this.sqlExceptionContent= MFXGenericDialogBuilder.build()
+									.setContentText("Please create an account!")
+									.makeScrollable(false)
+									.get();
+			this.sqlException=MFXGenericDialogBuilder.build(this.sqlExceptionContent)
+							.toStageDialogBuilder()
+							.initOwner(App.stageApp)
+							.initModality(Modality.WINDOW_MODAL)
+							.setDraggable(false)
+							.setOwnerNode(background)
+							.setScrimPriority(ScrimPriority.WINDOW)
+							.setScrimOwner(true)
+							.get();
+
+			sqlExceptionContent.addActions(
+					Map.entry(new MFXButton("Create account"), event -> {
+						try {
+							SceneChanger.toCreateAccount();
+							sqlException.close();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}),
+					Map.entry(new MFXButton("close"), event -> sqlException.close())
+			);
+
+			sqlExceptionContent.setMaxSize(400, 200);
+			sqlException.toFront();
+			sqlExceptionContent.toFront();
+			sqlException.setX(0);
+			sqlException.setY(0);
+		});
+	}
+	
+	public void errorBoxInit2(){
+		
+		// backgroundStack.getChildren().remove(foregroundStack);
+
+		
+		errorTitle.setText("title 1");
+		errorDescription.setText("description 1");
+		errorButton.setText("button 1");
+		errorButton.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
-
 				try {
-					checkLogin();
-					SceneChanger.toEvents();
+					SceneChanger.toCreateAccount();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
-
+				
 			}
+			
+		});
+		closeButton.setOnAction(new EventHandler<ActionEvent>() {
 
+			@Override
+			public void handle(ActionEvent event) {
+				backgroundStack.getChildren().remove(foregroundStack);
+				
+			}
+			
 		});
 
 	}
 
-	private void checkLogin() throws IOException, SQLException {
-		ServiceUser serviceUser = new ServiceUser();
-
-		if (!emailField.getText().isEmpty() || !passwordField.getText().isEmpty()) {
-			// if the email field or the password field is empty then
-			System.out.println(serviceUser.findByMail(emailField.getText().toString()));
-			App.user = serviceUser.findByMail(emailField.getText().toString());
-			// cons
-			if (passwordField.getText().toString().equals(String.valueOf(App.user.getPasswordHash()))) {
-
-				SceneChanger.toJobOffers();
-			} else {
-				emailField.setText("");
-				passwordField.setText("");
-
-			}
-
-		} else if (emailField.getText().isEmpty() || passwordField.getText().isEmpty()) {
-			emailField.setText("");
-			passwordField.setText("");
-		}
-
-		else {
-			emailField.setText("");
-			passwordField.setText("");
-		}
-
-	}
 }

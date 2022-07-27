@@ -14,6 +14,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 
 import java.io.*;
@@ -33,51 +34,107 @@ import techaholic.recruited.App;
 import techaholic.recruited.CRUD.Entite.User;
 import techaholic.recruited.CRUD.Service.ServiceUser;
 import techaholic.recruited.Utils.SceneChanger;
+import techaholic.recruited.Utils.Validator;
 
 public class CreateAccountController implements Initializable {
 
-	@FXML
-	MFXTextField email;
 	@FXML
 	MFXTextField firstName;
 	@FXML
 	MFXTextField lastName;
 	@FXML
-	MFXTextField phone;
-	MFXTextField password;
+	MFXTextField email;
+	@FXML
+	MFXPasswordField password;
+	@FXML
+	MFXPasswordField confirmPassword;
 
 	@FXML
-	MFXTextField confirm;
-
+	Text invalidFirstName ;
 	@FXML
-	MFXCombo<String> roles;
-
+	Text invalidLastName ;
 	@FXML
-	MFXButton signin;
-
+	Text invalidEmail ;
+	@FXML
+	Text invalidPassword ;
+	@FXML
+	Text invalidConfirmPassword ;
+	
+	
+	@FXML
+	MFXButton signup;
+	@FXML
+	MFXButton toLogin;
+	
 	private String imgName;
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		signup.setOnAction(new EventHandler<ActionEvent>() {
 
-	@FXML
-	private void goToLogin() throws IOException {
-		App.setRoot("login");
+			@Override
+			public void handle(ActionEvent event) {
+
+				try {
+					validateAndCreateAccount();
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+
+		});
+
+		toLogin.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				try {
+					SceneChanger.toLogin();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			
+		});
+
 	}
 
-	private void createUser() throws SQLException, IOException {
+	
+	
+	private void validateAndCreateAccount() throws IOException {
+		if(Validator.validateWord(firstName.getText())
+					&&Validator.validateWord(lastName.getText())
+					&&Validator.validateEmail(email.getText())
+					&&Validator.validatePassword(password.getText())
+					&&confirmPassword.getText().equals(password.getText())){
+			ServiceUser serviceUser = ServiceUser.getInstance();
+			try {
+				serviceUser.create(new User(firstName.getText(), lastName.getText(), 1, 0, email.getText(), password.getText()));
+			} catch (SQLException e) {
+				System.out.println("data base error");
+			}
+			SceneChanger.toLogin();
+			return;
+		}
+		if(!Validator.validateWord(firstName.getText()))
+			invalidFirstName.setText("invalid first name");
+		if(!Validator.validateWord(lastName.getText()))
+			invalidLastName.setText("invalid last name");
+		if(!Validator.validateEmail(email.getText()))
+			invalidEmail.setText("invalid e-mail");
+		if(!Validator.validatePassword(password.getText()))
+			invalidPassword.setText("invalid password");
+		if(!confirmPassword.getText().equals(password.getText()))
+			invalidConfirmPassword.setText("Missmatching password");
 
-		ServiceUser serviceUser = new ServiceUser();
-		User user = new User(
-				firstName.getText().toString(),
-				// clastname.getText(),
-				this.imgName,
-				2,
-				32525,
-				email.getText().toString(),
-
-				Integer.parseInt(password.getText().toString()));
-		serviceUser.create(user);
-		this.goToLogin();
-
+		
 	}
+
+	
 
 	private void createImage() throws IOException {
 		FileChooser fc = new FileChooser();
@@ -109,58 +166,5 @@ public class CreateAccountController implements Initializable {
 
 	}
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		signin.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent event) {
-
-				try {
-					createUser();
-					checkLogin();
-					SceneChanger.toJobOffers();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-			}
-
-		});
-
-	}
-
-	private void checkLogin() throws IOException, SQLException {
-		ServiceUser serviceUser = new ServiceUser();
-
-		if (!email.getText().isEmpty() || !password.getText().isEmpty()) {
-
-			System.out.println(serviceUser.findByMail(email.getText().toString()));
-			App.user = serviceUser.findByMail(email.getText().toString());
-
-			if (password.getText().toString().equals(String.valueOf(App.user.getPasswordHash()))) {
-
-				SceneChanger.toJobOffers();
-			} else {
-				email.setText("");
-				password.setText("");
-
-			}
-
-		} else if (email.getText().isEmpty() || password.getText().isEmpty()) {
-			email.setText("");
-			password.setText("");
-		}
-
-		else {
-			email.setText("");
-			password.setText("");
-		}
-
-	}
 
 }

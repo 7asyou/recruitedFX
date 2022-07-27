@@ -25,20 +25,21 @@ public class App extends Application {
 
 	private static Scene scene;
 
+	public static Stage stageApp = null;
+
 	@Override
 	public void start(Stage stage) throws IOException {
 		CSSFX.start();
 		SideBarLoader.init(sidebarContent);
+		this.stageApp=stage;
 		// stage.initStyle(StageStyle.TRANSPARENT);
-		scene = new Scene(loadFXML("login"), 1280, 720);
-		scene.getStylesheets().add("css/stylesheet.css");
+		scene = new Scene(loadFXML("createAccount"), 1280, 720);
 		stage.setScene(scene);
 		stage.show();
 	}
 
 	public static void setRoot(String fxml) throws IOException {
 		scene.setRoot(loadFXML(fxml));
-
 	}
 
 	private static Parent loadFXML(String fxml) throws IOException {

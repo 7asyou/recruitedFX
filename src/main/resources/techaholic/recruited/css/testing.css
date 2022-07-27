@@ -1,0 +1,15 @@
+.test {
+	-fx-fill: red;
+	-fx-background-color: red;
+}
+.test:focused,
+.test:armed {
+	-fx-fill: blue;
+	-fx-background-color: blue;
+}
+.mfx-text-field .mfx-text-field {
+	-fx-translate-x: 3000;
+}
+.fraise {
+	-fx-background-color: pink;
+}
