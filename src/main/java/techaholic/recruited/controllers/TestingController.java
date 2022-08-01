@@ -3,14 +3,23 @@ package techaholic.recruited.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
+import techaholic.recruited.Utils.Transition;
 
 public class TestingController implements Initializable {
 
@@ -23,11 +32,17 @@ public class TestingController implements Initializable {
 	@FXML
 	MFXTextField input;
 
+	@FXML 
+	MFXButton button;
+
+	@FXML
+	Label label;
+
 	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+	
 		for (int i = 0; i < 10; i++) {
 			MFXButton button = new MFXButton(String.valueOf(i));
 			flowPane.getChildren().addAll(button);
@@ -59,10 +74,25 @@ public class TestingController implements Initializable {
 			}
 			
 		});
-
 		
-
+		button.setOnAction(e -> Transition.getInstance(button).play());
 		
 	}
-
+	public void popUpTransition(Node node){
+		TranslateTransition translateUp = new TranslateTransition(Duration.millis(200), node);
+		TranslateTransition translateDown = new TranslateTransition(Duration.millis(200), node);
+		translateUp.setByY(-200f);
+		translateUp.setCycleCount(1);
+		translateUp.setAutoReverse(true);
+		translateUp.setOnFinished(e ->{
+			translateDown.setByY(200f);
+			translateDown.setCycleCount(1);
+			ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+			service.schedule(
+				translateDown::play
+			, 1, TimeUnit.SECONDS);
+				
+		});
+		translateUp.play();
+	}
 }

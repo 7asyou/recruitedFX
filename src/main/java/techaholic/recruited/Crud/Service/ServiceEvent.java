@@ -16,7 +16,7 @@ public class ServiceEvent implements
 		IService<Event> {
 	private PreparedStatement preparedStatement;
 	private Statement statement;
-	private Connection connection = DataSource.getInstance().getCon();
+	private Connection connection = DataSource.getInstance().getConnection();
 	private ResultSet resultSet;
 
 	public ServiceEvent() {

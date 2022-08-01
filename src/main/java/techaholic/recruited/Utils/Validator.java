@@ -1,10 +1,6 @@
 package techaholic.recruited.Utils;
 
-import java.text.CharacterIterator;
-import java.text.StringCharacterIterator;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 import java.util.regex.*;
 import org.apache.commons.validator.routines.EmailValidator;
 
@@ -14,9 +10,8 @@ public class Validator {
 	private static String lowerCase = "[a-z]+";
 	private static String digit = "[\\d]+";
 	private static String special = "[!@#&()–[{}]:;',?/*~$^+=<>-]+";
-	// private static String space = " ";
 	
-	static String whitespace_chars =  ""       /* dummy empty string for homogeneity */
+	static String whitespaceChars =  ""       /* dummy empty string for homogeneity */
 	+ "\\u0009" // CHARACTER TABULATION
                         + "\\u000A" // LINE FEED (LF)
                         + "\\u000B" // LINE TABULATION
@@ -25,15 +20,17 @@ public class Validator {
                         + "\\u0020" // SPACE
                         ;        
 	/* A \s that actually works for Java’s native character set: Unicode */
-	static String     whitespace_charclass = "["  + whitespace_chars + "]";    
+	static String     whitespaceCharclass = "["  + whitespaceChars + "]";    
 	/* A \S that actually works for  Java’s native character set: Unicode */
-	static String not_whitespace_charclass = "[^" + whitespace_chars + "]";
+	static String notWhitespaceCharclass = "[^" + whitespaceChars + "]";
 						
 						
-	private static String allowedPassword = "[A-Za-z\\d!@#&()–[{}]:;',?/*~$^+=<>-"+"["+whitespace_charclass+"]"+"]*";
-	private static String allowedWord = "[A-Za-z"+"["+whitespace_charclass+"]"+"]*";
+	private static String allowedPassword = "[A-Za-z\\d!@#&()–[{}]:;',?/*~$^+=<>-"+"["+whitespaceCharclass+"]"+"]*";
+	private static String allowedWord = "[A-Za-z"+"["+whitespaceCharclass+"]"+"]*";
 		
 		
+	private Validator() {
+	}
 	public static boolean isUpperCase(String string){
 		return Pattern.matches(upperCase, string) ;
 	}
@@ -47,7 +44,7 @@ public class Validator {
 		return Pattern.matches(special, string) ;
 	}
 	public static boolean isSpace(String string){
-		return string.equals(whitespace_charclass+"+");
+		return string.equals(whitespaceCharclass+"+");
 	}
 	public static boolean isAllowedPassword(String string){
 		return Pattern.matches(allowedPassword,string);

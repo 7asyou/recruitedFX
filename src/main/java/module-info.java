@@ -6,7 +6,7 @@ module techaholic.recruited {
 	requires courier.java;
 	requires java.sql;
 	requires commons.validator;
-
+	requires jidefx.common;
 	requires VirtualizedFX;
 	requires MaterialFX;
 

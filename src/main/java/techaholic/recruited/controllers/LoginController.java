@@ -38,7 +38,9 @@ import techaholic.recruited.App;
 
 import techaholic.recruited.CRUD.Entite.User;
 import techaholic.recruited.CRUD.Service.ServiceUser;
+import techaholic.recruited.Utils.Dialog;
 import techaholic.recruited.Utils.SceneChanger;
+import techaholic.recruited.Utils.Transition;
 import techaholic.recruited.Utils.Validator;
 
 public class LoginController implements Initializable {
@@ -91,6 +93,8 @@ public class LoginController implements Initializable {
 
 	private MFXGenericDialog sqlExceptionContent;
 	private MFXStageDialog sqlException;
+	@FXML
+	private Label popup;
 	
 	
 	boolean isFocused = false;
@@ -103,9 +107,8 @@ public class LoginController implements Initializable {
 	}
 	
 	public void initialize(URL location, ResourceBundle resources) {
-		errorBoxInit2();
-		// errorBoxInit();
 		
+		Dialog.getInstance().dialogInit( backgroundStack,"Error Title:", "Description: lorem episum.", "Create Account");
 		passwordField.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			
 			@Override
@@ -115,7 +118,7 @@ public class LoginController implements Initializable {
 						validateAndLogin(emailField.getText(),passwordField.getText());
 
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
+						Dialog.getInstance().activate(backgroundStack);
 						e.printStackTrace();
 					}
 				}				
@@ -131,7 +134,6 @@ public class LoginController implements Initializable {
 	
 
 	private void validateAndLogin(String email, String password) throws IOException{
-		// System.out.println(password);
 		if(Validator.validatePassword(password)&&Validator.validateEmail(email)){
 			ServiceUser serviceUser = ServiceUser.getInstance();
 
@@ -140,9 +142,7 @@ public class LoginController implements Initializable {
 				if((App.user != null)){
 					SceneChanger.toJobOffers();
 				}else{
-					// errorBoxHandler();
-					backgroundStack.getChildren().add(foregroundStack);
-
+					Dialog.getInstance().activate(backgroundStack);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -150,11 +150,13 @@ public class LoginController implements Initializable {
 		
 		}else if(!Validator.validateEmail(email)){
 			
-			passwordMessage.setText("please enter a valid email");
+			popup.setText("please enter a valid email");
+			Transition.getInstance(popup).play();
 			return;
 		}else if(!Validator.validatePassword(password)){
 			emailMessage.setText(" ");
-			passwordMessage.setText("please enter a valid password");
+			popup.setText("please enter a valid password");
+			Transition.getInstance(popup).play();
 		}
 	}
 

@@ -9,9 +9,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.text.TextAlignment;
 import techaholic.recruited.App;
 
 /**

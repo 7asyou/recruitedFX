@@ -131,3 +131,63 @@
 .dialoge-pane {
 	-fx-effect: dropshadow(gaussian, rgba(79, 119, 170, 0.5), 1, 0, 1, 1);
 }
+
+.dialog-foreground {
+}
+
+.dialog-flow {
+	-fx-background-color: white;
+	-fx-opacity: 0.5;
+}
+
+.dialog-box {
+	-fx-background-color: white;
+	-fx-padding: 10 20 10 20;
+	-fx-background-radius: 20;
+	-fx-effect: dropshadow(gaussian, rgba(79, 119, 170, 0.5), 1, 0, 1, 1);
+}
+
+.dialog-title {
+	-fx-font-family: "Inria Sans Bold";
+	-fx-font-size: 18;
+	-fx-fill: red;
+}
+.dialog-description {
+	-fx-font-family: "Inria Sans";
+	-fx-translate-y: 10;
+	-fx-font-size: 14;
+	-fx-fill: #4f77aa;
+}
+.dialog-button {
+	-fx-font-family: "Inria Sans Bold";
+	-fx-font-size: 14;
+	-fx-text-fill: #4f77aa;
+}
+.dialog-close-button {
+	-fx-font-family: "Inria Sans Bold";
+}
+
+.dialog-button:hover {
+	-fx-underline: true;
+	-fx-font-size: 14.5;
+}
+
+.dialog-close-button:hover {
+	-fx-text-fill: red;
+}
+
+.pop-up {
+	-fx-text-fill: white;
+	-fx-background-color: #ed4337;
+	/* -fx-font-family: "Inria Sans Bold"; */
+	-fx-font-smoothing-type: gray;
+	-fx-font-size: 16;
+	-fx-min-width: 200;
+
+	-fx-padding: 5 10 5 10;
+	-fx-background-radius: 5;
+	-fx-alignment: center;
+}
+.pop-up .text {
+	-fx-font-smoothing-type: gray;
+}

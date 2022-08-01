@@ -12,7 +12,7 @@ import static java.lang.String.valueOf;
 
 public class ServiceUser implements IService<User> {
 
-	private Connection connection = DataSource.getInstance().getCon();
+	private Connection connection = DataSource.getInstance().getConnection();
 	private Statement statement;
 	private PreparedStatement preparedStatement;
 	private ResultSet resultSet;

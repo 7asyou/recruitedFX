@@ -17,25 +17,26 @@ public class DataSource {
 
 	private static DataSource instance;
 
-	private Connection con;
+	private Connection connection;
 
 	private String url = "jdbc:mysql://localhost:3306/recruited";
 
 	private String login = "root";
-	private String pwd = "";
+	private String password = "";
 
 	private DataSource() {
 
 		try {
-			con = DriverManager.getConnection(url, login, pwd);
-			System.out.println("Connexion établie");
+			System.out.println("Connecting to Database...");
+			connection = DriverManager.getConnection(url, login, password);
+			System.out.println("Connection established.");
 		} catch (SQLException ex) {
 			System.err.println(ex);
 		}
 	}
 
-	public Connection getCon() {
-		return con;
+	public Connection getConnection() {
+		return connection;
 	}
 
 	public static DataSource getInstance() {

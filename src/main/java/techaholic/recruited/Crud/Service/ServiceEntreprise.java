@@ -16,7 +16,7 @@ import techaholic.recruited.Utils.DataSource;
 public class ServiceEntreprise implements IService<Entreprise> {
 	private PreparedStatement preparedStatement;
 	private Statement statement;
-	private Connection connection = DataSource.getInstance().getCon();
+	private Connection connection = DataSource.getInstance().getConnection();
 	private ResultSet resultSet;
 
 	public ServiceEntreprise() {

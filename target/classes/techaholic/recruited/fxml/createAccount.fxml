@@ -5,6 +5,7 @@
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
@@ -78,6 +79,7 @@
             <Text fx:id="invalidConfirmPassword" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="invalid" text="   " GridPane.rowIndex="10" />
             <MFXPasswordField id="password" fx:id="password" floatingText="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="41.6" styleClass="account-text-field" GridPane.rowIndex="7" />
             <MFXPasswordField id="confirm-password" fx:id="confirmPassword" floatingText="confirm password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="41.6" styleClass="account-text-field" GridPane.rowIndex="9" />
+            <Label fx:id="popup" styleClass="pop-up" text="Label" translateY="320.0" GridPane.rowIndex="13" />
          </children>
       </GridPane>
    </children>

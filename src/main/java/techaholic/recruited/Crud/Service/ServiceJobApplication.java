@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ServiceJobApplication implements IService<JobApplication> {
-	private Connection connection = DataSource.getInstance().getCon();
+	private Connection connection = DataSource.getInstance().getConnection();
 	private Statement statement;
 	private PreparedStatement preparedStatement;
 	private ResultSet resultSet;

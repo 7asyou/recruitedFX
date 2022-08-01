@@ -34,6 +34,7 @@ import techaholic.recruited.App;
 import techaholic.recruited.CRUD.Entite.User;
 import techaholic.recruited.CRUD.Service.ServiceUser;
 import techaholic.recruited.Utils.SceneChanger;
+import techaholic.recruited.Utils.Transition;
 import techaholic.recruited.Utils.Validator;
 
 public class CreateAccountController implements Initializable {
@@ -65,6 +66,9 @@ public class CreateAccountController implements Initializable {
 	MFXButton signup;
 	@FXML
 	MFXButton toLogin;
+
+	@FXML
+	Label popup;
 	
 	private String imgName;
 	@Override
@@ -120,17 +124,26 @@ public class CreateAccountController implements Initializable {
 			SceneChanger.toLogin();
 			return;
 		}
-		if(!Validator.validateWord(firstName.getText()))
-			invalidFirstName.setText("invalid first name");
-		if(!Validator.validateWord(lastName.getText()))
-			invalidLastName.setText("invalid last name");
-		if(!Validator.validateEmail(email.getText()))
-			invalidEmail.setText("invalid e-mail");
-		if(!Validator.validatePassword(password.getText()))
-			invalidPassword.setText("invalid password");
-		if(!confirmPassword.getText().equals(password.getText()))
-			invalidConfirmPassword.setText("Missmatching password");
-
+		if(!Validator.validateWord(firstName.getText())){
+			popup.setText("invalid first name");
+			Transition.getInstance(popup).play();
+		}
+		if(!Validator.validateWord(lastName.getText())){
+			popup.setText("invalid last name");
+			Transition.getInstance(popup).play();
+		}
+		if(!Validator.validateEmail(email.getText())){
+			popup.setText("invalid e-mail");
+			Transition.getInstance(popup).play();
+		}
+		if(!Validator.validatePassword(password.getText())){
+			popup.setText("invalid password");
+			Transition.getInstance(popup).play();
+		}
+		if(!confirmPassword.getText().equals(password.getText())){
+			popup.setText("Missmatching password");
+			Transition.getInstance(popup).play();
+			}
 		
 	}
 

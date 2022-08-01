@@ -10,7 +10,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import techaholic.recruited.CRUD.Entite.User;
 import techaholic.recruited.Utils.SideBarLoader;
 
@@ -18,7 +17,7 @@ import techaholic.recruited.Utils.SideBarLoader;
  * JavaFX App
  */
 public class App extends Application {
-	static public User user;
+	static public  User user;
 	public static ArrayList<String> sidebarContent = new ArrayList<>();
 
 	public static int[] roles = { 0, 1, 2 };

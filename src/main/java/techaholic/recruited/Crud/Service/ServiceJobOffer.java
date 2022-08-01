@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ServiceJobOffer implements IService<JobOffer> {
-	private Connection connection = DataSource.getInstance().getCon();
+	private Connection connection = DataSource.getInstance().getConnection();
 	private Statement statement;
 	private PreparedStatement preparedStatement;
 	private ResultSet resultSet;

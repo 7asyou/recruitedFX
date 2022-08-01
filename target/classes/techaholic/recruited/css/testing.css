@@ -1,3 +1,4 @@
+@import "fonts.css";
 .test {
 	-fx-fill: red;
 	-fx-background-color: red;
@@ -12,4 +13,16 @@
 }
 .fraise {
 	-fx-background-color: pink;
+}
+
+.pop-up {
+	-fx-text-fill: white;
+	-fx-background-color: #ed4337;
+	-fx-font-family: "Inria Sans Bold";
+	-fx-font-smoothing-type: gray;
+	-fx-font-size: 32;
+	-fx-padding: 5 10 5 10;
+}
+.pop-up .text {
+	-fx-font-smoothing-type: gray;
 }

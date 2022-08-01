@@ -155,6 +155,7 @@ public class EventsController implements Initializable {
 
 		columnConstraints0.setPercentWidth(95);
 		columnConstraints1.setPercentWidth(10);
+	
 
 		GridPane.setConstraints(title, 0, 0);
 		GridPane cellHeader = new GridPane();
