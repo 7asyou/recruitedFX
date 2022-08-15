@@ -22,7 +22,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.HorizontalDirection;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Effect;
+import javafx.scene.effect.GaussianBlur;
+import javafx.scene.effect.InnerShadow;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -30,7 +35,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.LinearGradient;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -39,6 +47,7 @@ import techaholic.recruited.App;
 import techaholic.recruited.CRUD.Entite.User;
 import techaholic.recruited.CRUD.Service.ServiceUser;
 import techaholic.recruited.Utils.Dialog;
+import techaholic.recruited.Utils.Header;
 import techaholic.recruited.Utils.SceneChanger;
 import techaholic.recruited.Utils.Transition;
 import techaholic.recruited.Utils.Validator;
@@ -47,6 +56,9 @@ public class LoginController implements Initializable {
 	
 	@FXML
 	private MFXTextField emailField;
+
+	@FXML
+	private Pane blur;
 
 	@FXML
 	private MFXPasswordField passwordField;
@@ -90,11 +102,21 @@ public class LoginController implements Initializable {
 	@FXML
 	private StackPane foregroundStack;
 	
-
-	private MFXGenericDialog sqlExceptionContent;
-	private MFXStageDialog sqlException;
 	@FXML
 	private Label popup;
+
+	@FXML
+	private MFXFontIcon closeIcon;
+	@FXML
+	private MFXFontIcon focusIcon;
+
+	@FXML
+	private MFXFontIcon minimizeIcon;
+	@FXML
+	private HBox header;
+	
+	private MFXGenericDialog sqlExceptionContent;
+	private MFXStageDialog sqlException;
 	
 	
 	boolean isFocused = false;
@@ -107,6 +129,9 @@ public class LoginController implements Initializable {
 	}
 	
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		Header.init(closeIcon, focusIcon, minimizeIcon, backgroundStack, header, App.stageApp);
+		
 		
 		Dialog.getInstance().dialogInit( backgroundStack,"Error Title:", "Description: lorem episum.", "Create Account");
 		passwordField.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -181,11 +206,11 @@ public class LoginController implements Initializable {
 	private static  void focusHandler(MFXTextField t){
 		ChangeListener<Boolean>  focusedListener = (obserble,oldValue,newValue) ->{
 				if(newValue){
-					t.setMaxHeight(70);
-					t.setMinHeight(70);
+					t.setMaxHeight(55);
+					t.setMinHeight(55);
 				}else{
-					t.setMaxHeight(60);
-					t.setMinHeight(60);
+					t.setMaxHeight(40);
+					t.setMinHeight(40);
 
 		 		}
 		};

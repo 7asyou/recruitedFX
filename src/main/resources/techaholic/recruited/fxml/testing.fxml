@@ -6,6 +6,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/testing.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="techaholic.recruited.controllers.TestingController">
@@ -15,9 +17,14 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="test" text="Text" />
          </children>
       </FlowPane>
-      <TextField layoutX="104.0" layoutY="141.0" styleClass="test" />
-      <MFXTextField fx:id="input" layoutX="104.0" layoutY="189.0" />
-      <MFXButton fx:id="button" layoutX="128.0" layoutY="277.0" />
-      <Label fx:id="label" layoutX="231.0" layoutY="282.0" styleClass="pop-up" text="Label" />
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <TextField styleClass="test" />
+            <MFXTextField fx:id="input" />
+            <MFXButton fx:id="button" />
+            <Label fx:id="label" styleClass="pop-up" text="Label" />
+            <Rectangle fx:id="effect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

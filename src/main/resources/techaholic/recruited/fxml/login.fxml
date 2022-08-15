@@ -3,16 +3,24 @@
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.materialfx.font.MFXFontIcon?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -28,20 +36,28 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Pane id="home" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-               <stylesheets>
-                  <URL value="@../css/createAccount.css" />
-                  <URL value="@../css/commons.css" />
-               </stylesheets></Pane>
+            <StackPane GridPane.rowIndex="1">
+               <children>
+                  <Pane id="home" fx:id="image" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="739.0" styleClass="blur">
+                     <stylesheets>
+                        <URL value="@../css/commons.css" />
+                        <URL value="@../css/createAccount.css" />
+                     </stylesheets>
+                     <effect>
+                        <BoxBlur height="0.0" width="0.0" />
+                     </effect>
+                  </Pane>
+               </children>
+            </StackPane>
             <GridPane fx:id="grid" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="355.0" styleClass="flex-pane" stylesheets="@../css/login.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="-Infinity" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints maxHeight="183.2" minHeight="10.0" prefHeight="183.2" valignment="BOTTOM" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" valignment="CENTER" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" valignment="TOP" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" valignment="TOP" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" valignment="CENTER" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" valignment="TOP" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
@@ -58,12 +74,12 @@
                         <Insets bottom="20.0" />
                      </GridPane.margin>
                   </Text>
-                  <MFXTextField id="login-email" fx:id="emailField" alignment="CENTER" floatingText="E-mail" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="42.0" styleClass="login-field" GridPane.rowIndex="1">
+                  <MFXTextField id="login-email" fx:id="emailField" alignment="CENTER" floatingText="E-mail" maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" styleClass="login-field" GridPane.rowIndex="1">
                      <textFill>
                         <Color />
                      </textFill>
                   </MFXTextField>
-                  <MFXPasswordField id="login-password" fx:id="passwordField" alignment="CENTER" floatingText="Password" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" styleClass="login-field" GridPane.rowIndex="3">
+                  <MFXPasswordField id="login-password" fx:id="passwordField" alignment="CENTER" floatingText="Password" maxHeight="-Infinity" minHeight="10.0" prefHeight="5.0" styleClass="login-field" GridPane.rowIndex="3">
                      <padding>
                         <Insets left="50.0" />
                      </padding>
@@ -88,6 +104,61 @@
             </GridPane>
          </children>
       </GridPane>
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="742.0" StackPane.alignment="BOTTOM_LEFT">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="297.0" stroke="TRANSPARENT" strokeType="INSIDE" width="742.0" StackPane.alignment="BOTTOM_LEFT">
+               <fill>
+                  <LinearGradient endX="1.0" endY="0.3787878571134625" startX="1.0" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color opacity="0.8024316430091858" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" opacity="0.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <effect>
+                  <GaussianBlur radius="0.0" />
+               </effect>
+            </Rectangle>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="742.0" StackPane.alignment="BOTTOM_LEFT">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="428.0" prefHeight="67.0" prefWidth="285.0" styleClass="action-title" text="Recruited" textFill="WHITE">
+                     <font>
+                        <Font name="Hammersmith One Regular" size="50.0" />
+                     </font>
+                  </Label>
+                  <Text fill="WHITE" layoutX="40.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="hero" text="Where Opportunities are Created." />
+                  <MFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="303.0" layoutY="582.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="415.0" styleClass="find" text="Find Your Opportunity" textAlignment="CENTER">
+                     <padding>
+                        <Insets bottom="1.0" />
+                     </padding>
+                  </MFXButton>
+                  <MFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="582.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="230.0" styleClass="recruit-now" text="Recruit Now" textAlignment="CENTER">
+                     <padding>
+                        <Insets bottom="1.0" />
+                     </padding>
+                  </MFXButton>
+                  <HBox fx:id="header" alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="1281.0" spacing="10.0" stylesheets="@../css/header.css">
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                     <children>
+                        <MFXFontIcon fx:id="focusIcon" description="mfx-circle" size="15.0" styleClass="always-on-top-icon" />
+                        <MFXFontIcon fx:id="minimizeIcon" description="mfx-circle" size="15.0" styleClass="minimize-icon" />
+                        <MFXFontIcon fx:id="closeIcon" description="mfx-circle" size="15.0" styleClass="close-icon" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
    </children>
    <stylesheets>
       <URL value="@../css/login.css" />

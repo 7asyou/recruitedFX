@@ -57,8 +57,7 @@
 	-fx-background-color: white;
 }
 
-.label {
-	-fx-text-fill: #4f77aa;
+.label .text {
 	-fx-font-smoothing-type: gray;
 }
 
@@ -191,3 +190,43 @@
 .pop-up .text {
 	-fx-font-smoothing-type: gray;
 }
+.action-title {
+	-fx-font-family: "Hammersmith One";
+	-fx-background-color: #3895d3;
+	-fx-background-radius: 0 7 7 0;
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0.2, 0, 0);
+}
+.action-title .text {
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0.45, 0, 4);
+}
+
+.hero {
+	-fx-font-family: "Inria Sans Bold";
+	-fx-font-size: 40;
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.3, 3, 2);
+}
+
+.recruit-now {
+	-fx-font-family: "Inria Sans Bold";
+	-fx-font-size: 33;
+	-fx-text-fill: white;
+	-fx-background-color: rgba(56, 149, 211, 0.8);
+	-fx-background-radius: 10;
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.4, 0, 2);
+}
+.find {
+	-fx-font-family: "Inria Sans Bold";
+	-fx-font-size: 33;
+	-fx-text-fill: #3895d3;
+	-fx-background-color: rgba(219, 241, 255, 0.9);
+	-fx-background-radius: 10;
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.4, 0, 2);
+}
+
+.mfx-button .text {
+	-fx-font-smoothing-type: gray;
+}
+
+/* .blur {
+	-fx-effect: innershadow(three-pass-box, transparent, 500, 0, 0, -100);
+} */

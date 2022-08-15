@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import techaholic.recruited.CRUD.Entite.User;
 import techaholic.recruited.Utils.SideBarLoader;
 
@@ -32,7 +33,8 @@ public class App extends Application {
 		SideBarLoader.init(sidebarContent);
 		this.stageApp=stage;
 		// stage.initStyle(StageStyle.TRANSPARENT);
-		scene = new Scene(loadFXML("createAccount"), 1280, 720);
+		scene = new Scene(loadFXML("login"), 1280, 720);
+		stage.initStyle(StageStyle.UNDECORATED);
 		stage.setScene(scene);
 		stage.show();
 	}

@@ -26,3 +26,7 @@
 .pop-up .text {
 	-fx-font-smoothing-type: gray;
 }
+
+.effect {
+	/* -fx-background-color: red; */
+}
