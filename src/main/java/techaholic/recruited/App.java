@@ -32,7 +32,7 @@ public class App extends Application {
 		CSSFX.start();
 		SideBarLoader.init(sidebarContent);
 		this.stageApp=stage;
-		// stage.initStyle(StageStyle.TRANSPARENT);
+
 		scene = new Scene(loadFXML("login"), 1280, 720);
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.setScene(scene);

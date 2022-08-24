@@ -134,6 +134,8 @@ public class LoginController implements Initializable {
 		
 		
 		Dialog.getInstance().dialogInit( backgroundStack,"Error Title:", "Description: lorem episum.", "Create Account");
+
+		
 		passwordField.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			
 			@Override
@@ -257,7 +259,7 @@ public class LoginController implements Initializable {
 	
 	public void errorBoxInit2(){
 		
-		// backgroundStack.getChildren().remove(foregroundStack);
+		
 
 		
 		errorTitle.setText("title 1");

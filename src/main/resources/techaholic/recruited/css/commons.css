@@ -222,6 +222,9 @@
 	-fx-background-radius: 10;
 	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.4, 0, 2);
 }
+.find .mfx-ripple-generator {
+	-mfx-ripple-color: #4f77aa;
+}
 
 .mfx-button .text {
 	-fx-font-smoothing-type: gray;

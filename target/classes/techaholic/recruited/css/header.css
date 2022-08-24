@@ -1,4 +1,3 @@
-@import "../fonts/Fonts.css";
 @import "MFXColors.css";
 
 /**************************************************
@@ -14,34 +13,34 @@
 /**************************************************
  * Window Header
 **************************************************/
-.rootPane .close-icon {
+.close-icon {
 	-mfx-color: -mfx-red;
 	-fx-opacity: 0.5;
 }
 
-.rootPane .close-icon:hover {
+.close-icon:hover {
 	-fx-opacity: 1;
 }
 
-.rootPane .minimize-icon {
+.minimize-icon {
 	-mfx-color: #ffbf37;
 	-fx-opacity: 0.5;
 }
 
-.rootPane .minimize-icon:hover {
+.minimize-icon:hover {
 	-fx-opacity: 1;
 }
 
-.rootPane .always-on-top-icon {
+.always-on-top-icon {
 	-mfx-color: -mfx-purple;
 	-fx-opacity: 0.5;
 }
 
-.rootPane .always-on-top-icon:hover {
+.always-on-top-icon:hover {
 	-fx-opacity: 1;
 }
 
-.rootPane .always-on-top-icon:always-on-top {
+.always-on-top-icon:always-on-top {
 	-fx-opacity: 1;
 }
 
@@ -94,35 +93,8 @@
 	-mfx-paused: true;
 }
 
-.rootPane
-	.sidebar
-	.navbar
-	.mfx-rectangle-toggle-node
-	.mfx-icon-wrapper
-	.mfx-font-icon {
-	-mfx-color: white;
-}
-
 .rootPane .sidebar .navbar .mfx-rectangle-toggle-node:selected {
 	-fx-background-color: white;
 	-fx-background-radius: 5;
 	-fx-text-fill: #601cbe;
-}
-
-.rootPane
-	.sidebar
-	.navbar
-	.mfx-rectangle-toggle-node:selected
-	.selection-rectangle {
-	-fx-stroke: transparent;
-	-fx-fill: #601cbe;
-}
-
-.rootPane
-	.sidebar
-	.navbar
-	.mfx-rectangle-toggle-node:selected
-	.mfx-icon-wrapper
-	.mfx-font-icon {
-	-mfx-color: #601cbe;
 }
